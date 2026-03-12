@@ -6,45 +6,49 @@
     <title>Key2Lev - Premium Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --gold: #c5a059; --dark-gold: #8e6d2d; --bg: #0a0a0a; --card: #151515; }
+        :root { --gold: #e5c07b; --bright-gold: #ffd700; --bg: #0a0a0a; --card: #151515; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--bg); color: white; margin: 0; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; }
         
-        .ad-container { max-width: 450px; width: 100%; background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%); border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 35px; padding: 30px 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        .ad-container { max-width: 450px; width: 100%; background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%); border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 35px; padding: 30px 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
         .logo { font-size: 55px; font-weight: 900; color: var(--gold); margin: 0; letter-spacing: -1px; }
         .tagline { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 30px; opacity: 0.8; }
         
         .experts-grid { display: flex; gap: 15px; margin: 25px 0; }
-        .expert-card { flex: 1; background: var(--card); padding: 15px; border-radius: 25px; border: 1px solid #222; border-bottom: 3px solid var(--dark-gold); }
+        .expert-card { flex: 1; background: var(--card); padding: 15px; border-radius: 25px; border: 1px solid #222; border-bottom: 3px solid var(--gold); }
         .photo-frame { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--gold); margin: 0 auto 12px; overflow: hidden; }
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
         .name { color: var(--gold); font-weight: bold; font-size: 19px; display: block; }
 
-        /* טופס פנייה מעוצב */
-        .contact-form { background: #1a1a1a; margin-top: 30px; padding: 20px; border-radius: 25px; border: 1px solid #333; text-align: right; }
+        /* למה אנחנו */
+        .features-section { margin: 30px 0; padding: 20px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+        .features-title { color: var(--gold); font-size: 18px; margin-bottom: 15px; font-weight: bold; }
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: right; }
+        .feature-item { font-size: 14px; color: #ddd; }
+
+        /* טופס פנייה */
+        .contact-form { background: #1a1a1a; margin-top: 20px; padding: 20px; border-radius: 25px; border: 1px solid #333; text-align: right; }
         .contact-form h3 { color: var(--gold); margin: 0 0 15px 0; text-align: center; font-size: 18px; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin: 8px 0; border-radius: 12px; border: 1px solid #333; background: #0a0a0a; color: white; box-sizing: border-box; font-family: inherit; }
-        .submit-btn { width: 100%; padding: 14px; background: var(--gold); border: none; border-radius: 12px; font-weight: bold; color: #000; cursor: pointer; margin-top: 10px; transition: 0.3s; }
-        .submit-btn:hover { background: var(--dark-gold); }
-
-        /* כפתורים צפים */
-        .floating-btns { position: fixed; bottom: 25px; left: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
-        .f-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,0.6); transition: 0.3s; }
-        .btn-whatsapp { background-color: #25d366; }
-        .btn-phone { background-color: var(--gold); }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin: 8px 0; border-radius: 12px; border: 1px solid #333; background: #0a0a0a; color: white; box-sizing: border-box; }
         
-        .contact-box { margin-top: 25px; padding: 15px; border-top: 1px solid #222; }
-        .contact-item { display: flex; justify-content: space-between; margin: 10px 0; font-size: 18px; color: var(--gold); text-decoration: none; font-weight: bold; }
+        /* כפתור שלח בקשה - צבע בהיר וזהוב יותר */
+        .submit-btn { width: 100%; padding: 14px; background: var(--bright-gold); border: none; border-radius: 12px; font-weight: bold; color: #000; cursor: pointer; margin-top: 10px; font-size: 16px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); }
 
+        .floating-btns { position: fixed; bottom: 25px; left: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
+        .f-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: white; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,0.6); }
+        .btn-whatsapp { background-color: #25d366; }
+        .btn-phone { background-color: var(--bright-gold); color: #000; }
+        
+        .contact-box { margin-top: 25px; padding: 15px; }
+        .contact-item { display: flex; justify-content: space-between; margin: 10px 0; font-size: 18px; color: var(--gold); text-decoration: none; font-weight: bold; }
         .lang-btn { position: absolute; top: 20px; left: 20px; background: none; border: 1px solid var(--gold); color: var(--gold); padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 12px; }
     </style>
 </head>
 <body>
-
     <div class="ad-container">
         <button class="lang-btn" onclick="toggleLanguage()">RU / HE</button>
         <div class="logo">key2lev</div>
         <div id="tagline" class="tagline">שירותי יוקרה לבית ולעסק</div>
-
+        
         <h2 id="mainTitle" style="font-size: 22px;">צריכים שיפוץ קוסמטי או תקלת חשמל?</h2>
         
         <div class="experts-grid">
@@ -54,9 +58,19 @@
                 <small id="role1" style="color: #888;">שיפוץ וגמר</small>
             </div>
             <div class="expert-card">
-                <div class="photo-frame"><img src="FB_IMG_1773330225006.jpg" alt="Tom"></div>
-                <span class="name">תום</span>
+                <div class="photo-frame"><img src="FB_IMG_1773330225006.jpg" alt="Artyom"></div>
+                <span class="name">ארתיום</span>
                 <small id="role2" style="color: #888;">חשמלאי מוסמך</small>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <div class="features-title" id="featTitle">— למה אנחנו? —</div>
+            <div class="features-grid">
+                <div class="feature-item" id="f1">✦ שירות מעל הכל</div>
+                <div class="feature-item" id="f2">✦ זמינות ואיכות</div>
+                <div class="feature-item" id="f3">✦ עבודה הוגנת</div>
+                <div class="feature-item" id="f4">✦ מרכז עד צפון</div>
             </div>
         </div>
 
@@ -84,19 +98,23 @@
     <script>
         let currentLang = 'he';
         const data = {
-            he: { tagline: "שירותי יוקרה לבית ולעסק", title: "צריכים שיפוץ קוסמטי או תקלת חשמל?", role1: "שיפוץ וגמר", role2: "חשמלאי מוסמך", formTitle: "השאירו פרטים ונחזור אליכם", submit: "שלח בקשה" },
-            ru: { tagline: "Премиальные услуги для дома и офиса", title: "Нужен ремонт или услуги электрика?", role1: "Ремонт и отделка", role2: "Лицензированный электрик", formTitle: "Оставьте заявку", submit: "Отправить" }
+            he: { tagline: "שירותי יוקרה לבית ולעסק", title: "צריכים שיפוץ קוסמטי או תקלת חשמל?", role1: "שיפוץ וגמר", role2: "חשמלאי מוסמך", featTitle: "— למה אנחנו? —", f1: "✦ שירות מעל הכל", f2: "✦ זמינות ואיכות", f3: "✦ עבודה הוגנת", f4: "✦ מרכז עד צפון", formTitle: "השאירו פרטים ונחזור אליכם", submit: "שלח בקשה" },
+            ru: { tagline: "Премиальные услуги для дома и офиса", title: "Нужен ремонт или услуги электрика?", role1: "Ремонт и отделка", role2: "Лицензированный электрик", featTitle: "— Почему мы? —", f1: "✦ Сервис прежде всего", f2: "✦ Качество и доступность", f3: "✦ Честная работа", f4: "✦ Центр и Север", formTitle: "Оставьте заявку", submit: "Отправить" }
         };
 
         function toggleLanguage() {
             const html = document.getElementById('mainHtml');
             currentLang = currentLang === 'he' ? 'ru' : 'he';
             html.dir = currentLang === 'he' ? 'rtl' : 'ltr';
-            
             document.getElementById('tagline').innerText = data[currentLang].tagline;
             document.getElementById('mainTitle').innerText = data[currentLang].title;
             document.getElementById('role1').innerText = data[currentLang].role1;
             document.getElementById('role2').innerText = data[currentLang].role2;
+            document.getElementById('featTitle').innerText = data[currentLang].featTitle;
+            document.getElementById('f1').innerText = data[currentLang].f1;
+            document.getElementById('f2').innerText = data[currentLang].f2;
+            document.getElementById('f3').innerText = data[currentLang].f3;
+            document.getElementById('f4').innerText = data[currentLang].f4;
             document.getElementById('formTitle').innerText = data[currentLang].formTitle;
             document.getElementById('submitBtn').innerText = data[currentLang].submit;
         }
