@@ -12,35 +12,51 @@
         
         .ad-container { max-width: 450px; width: 100%; background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%); border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 35px; padding: 30px 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
         
-        /* לוגו עליון - פונט ועיצוב חדש */
+        /* לוגו עליון */
         .logo { font-family: 'Cinzel', serif; font-size: 50px; font-weight: 800; color: var(--gold); margin: 0; letter-spacing: -2px; text-shadow: 0px 4px 6px rgba(0,0,0,0.3); }
         .tagline { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 30px; opacity: 0.8; }
         
-        .experts-title { color: var(--dark-gold); font-size: 14px; margin-bottom: 20px; text-align: center; }
-        .experts-title::before { content: "✦ "; color: var(--gold); }
+        /* הכותרת הכללית */
+        .main-title { font-size: 22px; margin-bottom: 20px; color: white; font-weight: bold; }
 
+        /* כרטיסי מומחים */
         .experts-grid { display: flex; gap: 15px; margin: 0 0 25px 0; }
-        .expert-card { flex: 1; background: var(--card); padding: 15px; border-radius: 25px; border: 1px solid #222; border-bottom: 3px solid var(--gold); }
+        .expert-card { flex: 1; background: var(--card); padding: 15px; border-radius: 25px; border: 1px solid #222; border-bottom: 3px solid var(--gold); display: flex; flex-direction: column; align-items: center; }
         .photo-frame { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--gold); margin: 0 auto 12px; overflow: hidden; }
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .name { color: var(--gold); font-weight: bold; font-size: 19px; display: block; }
+        
+        /* שם המומחה */
+        .name { color: var(--gold); font-weight: bold; font-size: 19px; display: block; margin-bottom: 5px; }
+        
+        /* תפקיד וטלפון */
+        .info-item { display: flex; align-items: center; gap: 5px; color: #888; font-size: 13px; margin-bottom: 3px; }
+        .info-item a { color: var(--gold); text-decoration: none; font-weight: bold; }
 
+        /* רשימת שירותים */
+        .services-list { list-style: none; padding: 0; margin: 10px 0 0 0; text-align: right; width: 100%; }
+        .services-list li { font-size: 13px; color: #ddd; position: relative; padding-right: 15px; margin-bottom: 2px; }
+        .services-list li::before { content: "✦"; color: var(--gold); position: absolute; right: 0; top: 0; font-size: 10px; }
+
+        /* למה אנחנו */
         .features-section { margin: 30px 0; padding: 20px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
         .features-title { color: var(--gold); font-size: 18px; margin-bottom: 15px; font-weight: bold; }
         .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: right; }
-        .feature-item { font-size: 14px; color: #ddd; }
+        .feature-item { font-size: 14px; color: #ddd; position: relative; padding-right: 15px; }
+        .feature-item::before { content: "✦"; color: var(--gold); position: absolute; right: 0; top: 0; font-size: 10px; }
 
+        /* טופס פנייה */
         .contact-form { background: #1a1a1a; margin-top: 20px; padding: 20px; border-radius: 25px; border: 1px solid #333; text-align: right; }
         .contact-form h3 { color: var(--gold); margin: 0 0 15px 0; text-align: center; font-size: 18px; }
         .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin: 8px 0; border-radius: 12px; border: 1px solid #333; background: #0a0a0a; color: white; box-sizing: border-box; }
         
+        /* כפתור שלח בקשה */
         .submit-btn { width: 100%; padding: 14px; background: var(--bright-gold); border: none; border-radius: 12px; font-weight: bold; color: #000; cursor: pointer; margin-top: 10px; font-size: 16px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); transition: 0.3s; }
 
+        /* כפתור וואטסאפ צף */
         .floating-wa { position: fixed; bottom: 25px; right: 20px; z-index: 1000; width: 60px; height: 60px; background: linear-gradient(145deg, #ffd700, #c5a059); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: #000; text-decoration: none; box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4); animation: gold-pulse 2s infinite; }
         @keyframes gold-pulse { 0% { box-shadow: 0 0 0 0 rgba(229, 192, 123, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(229, 192, 123, 0); } 100% { box-shadow: 0 0 0 0 rgba(229, 192, 123, 0); } }
 
-        .contact-box { margin-top: 25px; padding: 15px; }
-        .contact-item { display: flex; justify-content: space-between; margin: 10px 0; font-size: 19px; color: var(--gold); text-decoration: none; font-weight: bold; border-bottom: 1px dashed #333; padding-bottom: 5px; }
+        /* שפות */
         .lang-btn { position: absolute; top: 20px; left: 20px; background: none; border: 1px solid var(--gold); color: var(--gold); padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 12px; }
         
         /* לוגו קטן בתחתית */
@@ -53,30 +69,55 @@
         <div class="logo">key2lev</div>
         <div id="tagline" class="tagline">שירותי יוקרה לבית ולעסק</div>
         
-        <h2 id="mainTitle" style="font-size: 22px;">צריכים שיפוץ קוסמטי או תקלת חשמל?</h2>
+        <h2 class="main-title" id="mainTitle">צריכים שיפוץ קוסמטי או תקלת חשמל?</h2>
         
-        <div class="experts-title" id="expertsTitle">המומחים שלנו יעשו את העבודה בשבילך</div>
-
         <div class="experts-grid">
             <div class="expert-card">
                 <div class="photo-frame"><img src="FB_IMG_1773330238671.jpg" alt="Solomon"></div>
                 <span class="name">סולומון</span>
-                <small id="role1" style="color: #888;">שיפוץ וגמר</small>
+                
+                <div class="info-item">
+                    <span id="role1">שיפוץ וגמר</span>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:0559804080">055-980-4080</a>
+                </div>
+                
+                <ul class="services-list">
+                    <li id="s1_1">שיפוצים קוסמטיים</li>
+                    <li id="s1_2">תחזוקת משרדים</li>
+                </ul>
             </div>
+            
             <div class="expert-card">
                 <div class="photo-frame"><img src="FB_IMG_1773330225006.jpg" alt="Artyom"></div>
                 <span class="name">ארתיום</span>
-                <small id="role2" style="color: #888;">חשמלאי מוסמך</small>
+                
+                <div class="info-item">
+                    <span id="role2">חשמלאי מוסמך</span>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:0549763940">054-976-3940</a>
+                </div>
+                
+                <ul class="services-list">
+                    <li id="s2_1">תיקון קצר חשמלי</li>
+                    <li id="s2_2">התקנת גופי תאורה</li>
+                </ul>
             </div>
         </div>
 
         <div class="features-section">
             <div class="features-title" id="featTitle">— למה אנחנו? —</div>
             <div class="features-grid">
-                <div class="feature-item" id="f1">✦ שירות מעל הכל</div>
-                <div class="feature-item" id="f2">✦ זמינות ואיכות</div>
-                <div class="feature-item" id="f3">✦ עבודה הוגנת</div>
-                <div class="feature-item" id="f4">✦ מרכז עד צפון</div>
+                <div class="feature-item" id="f1">שירות מעל הכל</div>
+                <div class="feature-item" id="f2">זמינות ואיכות</div>
+                <div class="feature-item" id="f3">עבודה הוגנת</div>
+                <div class="feature-item" id="f4">מרכז עד צפון</div>
             </div>
         </div>
 
@@ -89,11 +130,6 @@
                 <button type="submit" id="submitBtn" class="submit-btn">שלח בקשה</button>
             </form>
         </div>
-
-        <div class="contact-box">
-            <a href="tel:0559804080" class="contact-item"><span>סולומון</span><span>055-980-4080</span></a>
-            <a href="tel:0549763940" class="contact-item"><span>ארתיום</span><span>054-976-3940</span></a>
-        </div>
         
         <div class="bottom-logo">K E Y 2 L E V</div>
     </div>
@@ -103,8 +139,34 @@
     <script>
         let currentLang = 'he';
         const data = {
-            he: { tagline: "שירותי יוקרה לבית ולעסק", title: "צריכים שיפוץ קוסמטי או תקלת חשמל?", expertsTitle: "המומחים שלנו יעשו את העבודה בשבילך", role1: "שיפוץ וגמר", role2: "חשמלאי מוסמך", featTitle: "— למה אנחנו? —", f1: "✦ שירות מעל הכל", f2: "✦ זמינות ואיכות", f3: "✦ עבודה הוגנת", f4: "✦ מרכז עד צפון", formTitle: "השאירו פרטים ונחזור אליכם", submit: "שלח בקשה" },
-            ru: { tagline: "Премиальные услуги для дома и офиса", title: "Нужен ремонт или услуги электрика?", expertsTitle: "Наши эксперты сделают работу за вас", role1: "Ремонт и отделка", role2: "Лицензированный электрик", featTitle: "— Почему мы? —", f1: "✦ Сервис прежде всего", f2: "✦ Качество и доступность", f3: "✦ Честная работа", f4: "✦ Центр и Север", formTitle: "Оставьте заявку", submit: "Отправить" }
+            he: { 
+                tagline: "שירותי יוקרה לבית ולעסק", 
+                title: "צריכים שיפוץ קוסמטי או תקלת חשמל?", 
+                role1: "שיפוץ וגמר", 
+                role2: "חשמלאי מוסמך", 
+                s1_1: "שיפוצים קוסמטיים", 
+                s1_2: "תחזוקת משרדים",
+                s2_1: "תיקון קצר חשמלי",
+                s2_2: "התקנת גופי תאורה",
+                featTitle: "— למה אנחנו? —", 
+                f1: "שירות מעל הכל", f2: "זמינות ואיכות", f3: "עבודה הוגנת", f4: "מרכז עד צפון", 
+                formTitle: "השאירו פרטים ונחזור אליכם", 
+                submit: "שלח בקשה" 
+            },
+            ru: { 
+                tagline: "Премиальные услуги для дома и офиса", 
+                title: "Нужен ремонт или услуги электрика?", 
+                role1: "Ремонт и отделка", 
+                role2: "Лицензированный электрик", 
+                s1_1: "Косметический ремонт", 
+                s1_2: "Обслуживание офисов",
+                s2_1: "Ремонт короткого замыкания",
+                s2_2: "Установка освещения",
+                featTitle: "— Почему мы? —", 
+                f1: "Сервис прежде всего", f2: "Качество и доступность", f3: "Честная работа", f4: "Центр и Север", 
+                formTitle: "Оставьте заявку", 
+                submit: "Отправить" 
+            }
         };
 
         function toggleLanguage() {
@@ -113,9 +175,12 @@
             html.dir = currentLang === 'he' ? 'rtl' : 'ltr';
             document.getElementById('tagline').innerText = data[currentLang].tagline;
             document.getElementById('mainTitle').innerText = data[currentLang].title;
-            document.getElementById('expertsTitle').innerText = data[currentLang].expertsTitle;
             document.getElementById('role1').innerText = data[currentLang].role1;
             document.getElementById('role2').innerText = data[currentLang].role2;
+            document.getElementById('s1_1').innerText = data[currentLang].s1_1;
+            document.getElementById('s1_2').innerText = data[currentLang].s1_2;
+            document.getElementById('s2_1').innerText = data[currentLang].s2_1;
+            document.getElementById('s2_2').innerText = data[currentLang].s2_2;
             document.getElementById('featTitle').innerText = data[currentLang].featTitle;
             document.getElementById('f1').innerText = data[currentLang].f1;
             document.getElementById('f2').innerText = data[currentLang].f2;
