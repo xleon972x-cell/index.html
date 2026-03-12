@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key2Lev | הסטנדרט המשותף</title>
+    <title>Key2Lev | הקהילה והשירות</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -15,57 +15,57 @@
 
         * { box-sizing: border-box; transition: all 0.3s ease; }
         body { font-family: 'Assistant', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; overflow-x: hidden; }
-        .container { max-width: 500px; margin: 0 auto; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
+
+        /* וואטסאפ בצד ימין למעלה */
+        .wa-top-right { 
+            position: absolute; top: 20px; right: 20px; 
+            width: 50px; height: 50px; background: #25d366; 
+            border-radius: 50%; display: flex; align-items: center; 
+            justify-content: center; font-size: 25px; color: #fff; 
+            text-decoration: none; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            animation: pulseGreen 2s infinite;
+        }
 
         /* לוגו */
-        .brand-header { text-align: center; padding: 30px 0; }
+        .brand-header { text-align: center; padding: 40px 0 20px 0; }
         .logo { font-family: 'Cinzel', serif; font-size: 55px; font-weight: 900; background: linear-gradient(to bottom, var(--gold-light), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
         .premium-tag { font-size: 14px; color: var(--gold-primary); font-weight: 700; margin-top: 5px; }
 
-        /* סליידר שוויוני - Infinite Loop */
-        .slider-container { width: 100%; overflow: hidden; background: var(--glass); border-radius: 30px; border: 1px solid var(--border-gold); margin: 20px 0; }
+        /* סליידר שוויוני */
+        .slider-container { width: 100%; overflow: hidden; background: var(--glass); border-radius: 30px; border: 1px solid var(--border-gold); margin: 25px 0; }
         .slider-track { display: flex; width: 200%; animation: scrollLoop 15s linear infinite; }
-        
-        @keyframes scrollLoop {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(50%); }
-        }
-
+        @keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
         .expert-card { flex: 1; padding: 30px 10px; text-align: center; min-width: 50%; }
-        .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; padding: 4px; background: var(--gold-primary); margin: 0 auto 15px; }
-        .photo-wrapper img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #000; }
+        .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; padding: 4px; background: var(--gold-primary); margin: 0 auto 15px; overflow: hidden; }
+        .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid #000; }
         .expert-name { font-size: 24px; color: var(--gold-light); margin: 0; font-weight: 700; }
 
-        /* קהילה אונליין - Live Chat Style */
-        .live-chat-box { 
-            background: #111; border: 1px solid #222; border-radius: 20px; 
-            margin-top: 30px; overflow: hidden; display: flex; flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .chat-header { background: #1a1a1a; padding: 10px 15px; font-size: 12px; color: var(--gold-primary); border-bottom: 1px solid #222; font-weight: 700; display: flex; justify-content: space-between; }
-        .chat-messages { height: 180px; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; background: #0c0c0c; }
-        .msg { font-size: 13px; line-height: 1.4; animation: fadeIn 0.5s ease; }
-        .msg b { color: var(--gold-light); margin-left: 5px; }
-        .chat-input-area { display: flex; padding: 10px; background: #1a1a1a; gap: 10px; }
-        .chat-input-area input { flex: 1; background: #000; border: 1px solid #333; padding: 8px 12px; color: #fff; border-radius: 10px; font-size: 13px; }
-        .send-btn { background: var(--gold-primary); border: none; padding: 5px 15px; border-radius: 10px; cursor: pointer; font-weight: 700; }
+        /* צ'אט קהילה מתקדם */
+        .live-chat-box { background: #111; border: 1px solid #222; border-radius: 25px; margin-top: 20px; overflow: hidden; display: flex; flex-direction: column; }
+        .chat-header { background: #1a1a1a; padding: 12px 15px; font-size: 13px; color: var(--gold-primary); border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center; }
+        .chat-messages { height: 200px; overflow-y: auto; padding: 15px; background: #0c0c0c; display: flex; flex-direction: column; gap: 8px; }
+        .msg { font-size: 13px; animation: fadeIn 0.4s ease; }
+        .msg b { color: var(--gold-light); }
+        
+        .name-setter { display: flex; padding: 10px; background: #151515; border-bottom: 1px solid #222; gap: 10px; }
+        .name-setter input { flex: 1; background: #000; border: 1px solid #333; padding: 5px 10px; color: var(--gold-light); border-radius: 8px; font-size: 12px; }
+        
+        .chat-input-area { display: flex; padding: 12px; background: #1a1a1a; gap: 10px; }
+        .chat-input-area input { flex: 1; background: #000; border: 1px solid #333; padding: 10px; color: #fff; border-radius: 12px; }
+        .send-btn { background: var(--gold-primary); border: none; padding: 0 20px; border-radius: 12px; cursor: pointer; color: #000; font-weight: 700; }
 
-        /* וואטסאפ - מורם למעלה */
-        .wa-float { 
-            position: fixed; bottom: 100px; /* הועלה למעלה */
-            right: 25px; width: 60px; height: 60px;
-            background: #25d366; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; font-size: 30px;
-            color: #fff; text-decoration: none; z-index: 999;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulseGreen { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(-5px); } to { opacity: 1; transform: translateX(0); } }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <a href="https://wa.me/972559804080" class="wa-top-right">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
         <header class="brand-header">
             <h1 class="logo">key2lev</h1>
             <div class="premium-tag">פרמיום פתרונות לבתים ולמשרדים</div>
@@ -76,12 +76,12 @@
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg" alt="Solomon"></div>
                     <h3 class="expert-name">סולומון</h3>
-                    <small style="color: #888;">אמן שיפוץ וגמר</small>
+                    <div style="font-size: 12px; color: #888;">אמן שיפוץ וגמר</div>
                 </div>
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg" alt="Artyom"></div>
                     <h3 class="expert-name">ארתיום</h3>
-                    <small style="color: #888;">חשמלאי מוסמך</small>
+                    <div style="font-size: 12px; color: #888;">חשמלאי מוסמך</div>
                 </div>
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg" alt="Solomon"></div>
@@ -94,51 +94,64 @@
             </div>
         </div>
 
-        <h2 style="text-align: center; font-size: 22px;">בואו נבנה משהו גדול יחד.</h2>
-
         <div class="live-chat-box">
             <div class="chat-header">
-                <span><i class="fas fa-circle" style="color: #ff4444; font-size: 8px;"></i> LIVE COMMUNITY</span>
-                <span id="viewer-count">42 צופים באתר</span>
+                <span><i class="fas fa-users"></i> צ'אט קהילה LIVE</span>
+                <span style="font-size: 10px; opacity: 0.6;">48 מחוברים</span>
             </div>
+            
+            <div class="name-setter">
+                <input type="text" id="userName" placeholder="שנה שם משתמש (אופציונלי)">
+            </div>
+
             <div class="chat-messages" id="chatBox">
-                <div class="msg"><b>משה:</b> עבודה מדהימה במשרד שלנו! ממליץ.</div>
-                <div class="msg"><b>דניאל:</b> המחיר כולל גם ייעוץ ראשוני?</div>
-                <div class="msg"><b>Key2Lev:</b> בטח דניאל, מוזמן להשאיר פרטים.</div>
+                <div class="msg"><b>מערכת:</b> ברוכים הבאים לפורום Key2Lev!</div>
+                <div class="msg"><b>יוסי 72:</b> עבודה פצצה במשרד, תודה סולומון וארתיום!</div>
             </div>
+
             <div class="chat-input-area">
-                <input type="text" id="userInput" placeholder="כתוב הודעה לקהילה...">
+                <input type="text" id="userInput" placeholder="כתוב הודעה...">
                 <button class="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
 
-        <footer style="text-align: center; padding: 40px 0; opacity: 0.5; font-size: 10px;">
-            K E Y 2 L E V • 2 0 2 6
+        <footer style="text-align: center; padding: 30px 0; opacity: 0.4; font-size: 10px; letter-spacing: 3px;">
+            K E Y 2 L E V • E X C E L L E N C E
         </footer>
     </div>
 
-    <a href="https://wa.me/972559804080" class="wa-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <script>
+        // יצירת שם רנדומלי ראשוני
+        let randomID = Math.floor(Math.random() * 900) + 100;
+        let currentUsername = "אורח " + randomID;
+        document.getElementById('userName').placeholder = "שם נוכחי: " + currentUsername;
+
         function sendMessage() {
-            const input = document.getElementById('userInput');
+            const nameInput = document.getElementById('userName');
+            const msgInput = document.getElementById('userInput');
             const box = document.getElementById('chatBox');
-            if(input.value.trim() !== "") {
-                const newMsg = document.createElement('div');
-                newMsg.className = 'msg';
-                newMsg.innerHTML = `<b>אורח:</b> ${input.value}`;
-                box.appendChild(newMsg);
-                input.value = "";
+
+            // עדכון שם אם המשתמש הזין משהו
+            if(nameInput.value.trim() !== "") {
+                currentUsername = nameInput.value.trim();
+            }
+
+            if(msgInput.value.trim() !== "") {
+                const div = document.createElement('div');
+                div.className = 'msg';
+                div.innerHTML = `<b>${currentUsername}:</b> ${msgInput.value}`;
+                box.appendChild(div);
+                msgInput.value = "";
                 box.scrollTop = box.scrollHeight;
             }
         }
-        // הדמיית הודעות נכנסות
-        setInterval(() => {
-            const viewers = Math.floor(Math.random() * (50 - 30 + 1)) + 30;
-            document.getElementById('viewer-count').innerText = `${viewers} צופים באתר`;
-        }, 5000);
+
+        // מאפשר לחיצה על Enter לשליחה
+        document.getElementById("userInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 </html>
