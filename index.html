@@ -3,140 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key2Lev | תחזוקה ושירותי בית</title>
+    <title>Key2Lev | Premium Maintenance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bronze-gold: #cd7f32; 
-            --bg-black: #050505; 
+            --gold: #d4af37; 
+            --premium-bronze: #cd7f32;
+            --bg-black: #080808; 
         }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
+        * { box-sizing: border-box; transition: all 0.4s ease; }
         body { font-family: 'Assistant', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; overflow-x: hidden; }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* כפתור וואטסאפ צף */
-        .wa-float { position: absolute; top: 20px; right: 20px; width: 50px; height: 50px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #fff; text-decoration: none; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-
-        /* לוגו */
-        .brand-header { text-align: center; padding: 60px 0 20px 0; }
-        .logo { font-family: 'Cinzel', serif; font-size: 50px; font-weight: 900; color: var(--bronze-gold); text-transform: uppercase; margin: 0; }
-        .tagline { color: var(--bronze-gold); font-size: 14px; font-weight: 700; margin-top: 5px; }
-
-        /* כרטיסי מומחים בסליידר */
-        .slider-container { width: 100%; overflow: hidden; margin: 20px 0; }
-        .slider-track { display: flex; width: 200%; animation: scrollLoop 15s linear infinite; }
-        @keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
+        /* כפתורי שליטה עליונים */
+        .top-nav { position: fixed; top: 0; width: 100%; max-width: 500px; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; z-index: 1000; pointer-events: none; }
+        .lang-switch { pointer-events: auto; background: none; border: 1px solid var(--premium-bronze); color: var(--premium-bronze); padding: 5px 12px; border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: bold; }
         
-        .expert-card { flex: 1; padding: 20px; text-align: center; min-width: 50%; cursor: pointer; }
-        .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--bronze-gold); margin: 0 auto 15px; overflow: hidden; }
-        .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .expert-name { font-size: 24px; color: var(--bronze-gold); margin: 0; font-weight: 700; }
-        .expert-role { font-size: 14px; color: #aaa; margin: 5px 0; }
-        .expert-phone { font-size: 16px; color: #fff; font-weight: 700; display: block; }
+        /* וואטסאפ מהבהב */
+        .wa-btn { pointer-events: auto; font-size: 30px; color: var(--premium-bronze); text-decoration: none; animation: glowPulse 2s infinite ease-in-out; }
+        @keyframes glowPulse { 0% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); text-shadow: 0 0 15px var(--premium-bronze); } 100% { opacity: 0.6; transform: scale(1); } }
+
+        /* לוגו זוהר עם פס תחתון */
+        .brand-section { text-align: center; padding: 80px 0 40px 0; }
+        .logo { 
+            font-family: 'Cinzel', serif; 
+            font-size: 48px; 
+            font-weight: 900; 
+            color: var(--gold); 
+            text-transform: uppercase; 
+            margin: 0; 
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            letter-spacing: 3px;
+        }
+        .logo-underline { width: 150px; height: 2px; background: linear-gradient(90deg, transparent, var(--premium-bronze), transparent); margin: 5px auto 10px; }
+        .sub-logo { color: var(--premium-bronze); font-size: 15px; font-weight: 700; letter-spacing: 1px; }
+
+        .section-intro { text-align: center; color: var(--gold); margin: 20px 0; font-size: 16px; font-weight: bold; }
+
+        /* סליידר מומחים */
+        .slider-container { width: 100%; overflow: hidden; padding: 20px 0; }
+        .slider-track { display: flex; width: 200%; animation: scrollExperts 12s linear infinite; }
+        @keyframes scrollExperts { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
+        
+        .expert-card { flex: 1; text-align: center; min-width: 50%; padding: 10px; cursor: pointer; }
+        .img-frame { 
+            width: 140px; height: 140px; border-radius: 50%; 
+            border: 3px solid var(--premium-bronze); 
+            margin: 0 auto 15px; overflow: hidden; 
+            box-shadow: 0 0 15px rgba(205, 127, 50, 0.3);
+        }
+        .img-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .expert-name { font-size: 22px; color: var(--gold); margin: 0; font-weight: 700; }
+        .expert-title { font-size: 14px; color: #aaa; margin-top: 5px; }
 
         /* למה אנחנו */
-        .why-us { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 20px; margin: 30px 0; border: 1px solid rgba(205, 127, 50, 0.2); }
-        .why-us h3 { color: var(--bronze-gold); text-align: center; margin-bottom: 15px; }
-        .why-point { margin-bottom: 15px; border-right: 3px solid var(--bronze-gold); padding-right: 15px; }
-        .why-point b { color: var(--bronze-gold); display: block; }
+        .why-us { background: rgba(255,255,255,0.02); border: 1px solid rgba(205, 127, 50, 0.2); border-radius: 15px; padding: 25px; margin: 30px 0; }
+        .why-us h3 { color: var(--gold); text-align: center; margin-bottom: 20px; font-size: 24px; }
+        .why-grid { display: grid; gap: 15px; }
+        .why-item { border-right: 2px solid var(--premium-bronze); padding-right: 12px; }
+        .why-item b { color: var(--gold); display: block; margin-bottom: 4px; }
+        .why-item p { margin: 0; font-size: 14px; color: #ccc; line-height: 1.4; }
+        #mainHtml[dir="ltr"] .why-item { border-right: none; border-left: 2px solid var(--premium-bronze); padding-right: 0; padding-left: 12px; }
 
-        /* טופס צור קשר */
-        .contact-form { background: #0a0a0a; padding: 25px; border-radius: 20px; border: 1px solid #1a1a1a; }
-        .contact-form h3 { color: var(--bronze-gold); text-align: center; margin-bottom: 20px; }
-        input { width: 100%; padding: 15px; margin-bottom: 10px; background: #000; border: 1px solid #222; color: #fff; border-radius: 10px; }
-        .submit-btn { width: 100%; padding: 18px; background: var(--bronze-gold); border: none; border-radius: 10px; font-weight: 900; color: #000; cursor: pointer; }
+        /* יצירת קשר */
+        .form-box { background: #111; padding: 30px; border-radius: 20px; border-top: 2px solid var(--premium-bronze); }
+        .form-box h3 { color: var(--gold); text-align: center; margin-bottom: 20px; }
+        input { width: 100%; background: #000; border: 1px solid #333; padding: 15px; border-radius: 8px; color: #fff; margin-bottom: 12px; }
+        input:focus { border-color: var(--gold); outline: none; }
+        .submit-btn { width: 100%; padding: 18px; background: var(--premium-bronze); border: none; border-radius: 8px; font-weight: 900; color: #000; cursor: pointer; font-size: 16px; }
 
-        /* מודל פרופיל */
-        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { background: #111; border: 1px solid var(--bronze-gold); padding: 30px; border-radius: 20px; width: 100%; max-width: 400px; position: relative; text-align: center; }
-        .close-modal { position: absolute; top: 10px; left: 15px; color: var(--bronze-gold); font-size: 30px; cursor: pointer; }
-        .modal-photo { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--bronze-gold); margin-bottom: 15px; }
+        /* מודל */
+        .modal { display: none; position: fixed; z-index: 3000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; padding: 20px; }
+        .modal-card { background: #151515; border: 1px solid var(--gold); padding: 40px 20px; border-radius: 25px; width: 100%; max-width: 380px; position: relative; text-align: center; }
+        .close-btn { position: absolute; top: 15px; left: 15px; color: var(--gold); font-size: 30px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <a href="https://wa.me/972559804080" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+    <div class="top-nav">
+        <button class="lang-switch" onclick="toggleLanguage()">РУ / HE</button>
+        <a href="https://wa.me/972559804080" class="wa-btn"><i class="fab fa-whatsapp"></i></a>
+    </div>
 
-        <header class="brand-header">
-            <h1 class="logo">key2lev</h1>
-            <div class="tagline">שירותי תחזוקה לבית ולעסק</div>
+    <div class="container">
+        <header class="brand-section">
+            <h1 class="logo">Key2Lev</h1>
+            <div class="logo-underline"></div>
+            <div class="sub-logo" id="sub_logo">שירותי תחזוקה לבית ולעסק</div>
         </header>
+
+        <div class="section-intro" id="intro_text">המתמחים שלנו יהיו איתכם באמצע הדרך</div>
 
         <div class="slider-container">
             <div class="slider-track" id="track">
-                <div class="expert-card" onclick="openProfile('artyom')">
-                    <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg"></div>
-                    <h3 class="expert-name">ארתיום</h3>
-                    <div class="expert-role">חשמלאי - התקנות ותחזוקה</div>
-                    <span class="expert-phone">054-976-3940</span>
-                </div>
                 <div class="expert-card" onclick="openProfile('solomon')">
-                    <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg"></div>
-                    <h3 class="expert-name">סולומון</h3>
-                    <div class="expert-role">תחזוקת משרדים ותיקון קוסמטי</div>
-                    <span class="expert-phone">055-980-4080</span>
+                    <div class="img-frame"><img src="FB_IMG_1773330238671.jpg"></div>
+                    <h3 class="expert-name" id="name_s">סולומון</h3>
+                    <div class="expert-title" id="role_s">צביעת בתים ותחזוקת משרדים</div>
+                </div>
+                <div class="expert-card" onclick="openProfile('tom')">
+                    <div class="img-frame"><img src="FB_IMG_1773330225006.jpg"></div>
+                    <h3 class="expert-name" id="name_t">תום</h3>
+                    <div class="expert-title" id="role_t">חשמלאי מוסמך</div>
                 </div>
             </div>
         </div>
 
         <section class="why-us">
-            <h3>למה Key2Lev?</h3>
-            <div class="why-point">
-                <b>שירות לקוח מעל הכל</b>
-                <span>גמישות, אמינות ואיכות עבודה ללא פשרות.</span>
-            </div>
-            <div class="why-point">
-                <b>עבודה מסודרת ונקייה</b>
-                <span>אנחנו משאירים חלל נקי ומוכן לשימוש.</span>
+            <h3 id="why_title">למה אנחנו?</h3>
+            <div class="why-grid">
+                <div class="why-item">
+                    <b id="w1_t">איכות ללא פשרות</b>
+                    <p id="w1_p">שימוש בחומרי גלם מובחרים ותוצאות ברמת פרימיום.</p>
+                </div>
+                <div class="why-item">
+                    <b id="w2_t">זמנים ואמינות</b>
+                    <p id="w2_p">עמידה בלוחות זמנים ויחס ישר ושקוף מהרגע הראשון.</p>
+                </div>
+                <div class="why-item">
+                    <b id="w3_t">הלקוח במרכז</b>
+                    <p id="w3_p">יחס אישי, עבודה נקייה ומסודרת, פריסה מהמרכז ועד הצפון.</p>
+                </div>
             </div>
         </section>
 
-        <section class="contact-form">
-            <h3>צרו קשר</h3>
+        <section class="form-box">
+            <h3 id="form_title">צרו קשר</h3>
             <form action="https://formspree.io/f/mojkwwrd" method="POST">
-                <input type="text" name="name" placeholder="שם מלא" required>
-                <input type="tel" name="phone" placeholder="טלפון" required>
-                <button type="submit" class="submit-btn">שליחת פנייה</button>
+                <input type="text" name="name" id="f_name" placeholder="שם מלא" required>
+                <input type="tel" name="phone" id="f_phone" placeholder="מספר פלאפון לחזרה" required>
+                <button type="submit" class="submit-btn" id="f_btn">פניה לצוות</button>
             </form>
         </section>
     </div>
 
-    <div id="profileModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeProfile()">&times;</span>
-            <img id="modalImg" class="modal-photo" src="">
-            <div id="modalBio" style="text-align: right; line-height: 1.6;"></div>
+    <div id="infoModal" class="modal">
+        <div class="modal-card">
+            <span class="close-btn" onclick="closeProfile()">&times;</span>
+            <div id="modalContent"></div>
         </div>
     </div>
 
     <script>
-        const profiles = {
-            solomon: { 
-                img: "FB_IMG_1773330238671.jpg",
-                bio: "<b>סולומון - תיקון ותחזוקה</b><br><br>• <b>תיקון קוסמטי:</b> צביעת דירות ותיקוני צבע.<br>• <b>תחזוקת משרדים:</b> שירות מפתח - הגעה פעמיים בשבוע, החלפת פחים ותחזוקה שוטפת." 
+        let currentLang = 'he';
+        const content = {
+            he: {
+                sub: "שירותי תחזוקה לבית ולעסק",
+                intro: "המתמחים שלנו יהיו איתכם באמצע הדרך",
+                why: "למה אנחנו?",
+                w1_t: "איכות ללא פשרות", w1_p: "שימוש בחומרי גלם מובחרים ותוצאות ברמת פרימיום.",
+                w2_t: "זמנים ואמינות", w2_p: "עמידה בלוחות זמנים ויחס ישר ושקוף מהרגע הראשון.",
+                w3_t: "הלקוח במרכז", w3_p: "יחס אישי, עבודה נקייה ומסודרת, פריסה מהמרכז ועד הצפון.",
+                form: "צרו קשר", f_n: "שם מלא", f_p: "מספר פלאפון לחזרה", f_b: "פניה לצוות",
+                name_s: "סולומון", role_s: "צביעת בתים ותחזוקת משרדים",
+                name_t: "תום", role_t: "חשמלאי מוסמך",
+                bio_s: "<b>סולומון</b><br>מומחה לצביעת בתים/דירות ותחזוקת משרדים שוטפת. עבודה נקייה, דייקנות ושירות מכל הלב.",
+                bio_t: "<b>תום</b><br>חשמלאי מוסמך. התקנת גופי תאורה, מאווררים, שקעים ופתרון תקלות בטיחותי ומקצועי."
             },
-            artyom: { 
-                img: "FB_IMG_1773330225006.jpg",
-                bio: "<b>ארתיום - שירותי חשמל</b><br><br>• <b>התקנות:</b> מאווררי תקרה, מנורות וגופי חימום.<br>• <b>תחזוקה:</b> החלפת שקעים ומתגים ובדיקת תקינות בסיסית." 
+            ru: {
+                sub: "Обслуживание домов и офисов",
+                intro: "Наши специалисты будут с вами на полпути",
+                why: "Почему мы?",
+                w1_t: "Бескомпромиссное качество", w1_p: "Использование лучших материалов и премиальный результат.",
+                w2_t: "Сроки и надежность", w2_p: "Соблюдение графиков и честный подход с первого момента.",
+                w3_t: "Клиент на первом месте", w3_p: "Личный подход, чистая работа, услуги от центра до севера.",
+                form: "Связаться с нами", f_n: "Полное имя", f_p: "Номер телефона", f_b: "Отправить команде",
+                name_s: "Соломон", role_s: "Покраска домов и обслуживание офисов",
+                name_t: "Том", role_t: "Дипломированный электрик",
+                bio_s: "<b>Соломон</b><br>Эксперт по покраске домов/квартир и регулярному обслуживанию офисов. Чистая работа и точность.",
+                bio_t: "<b>Том</b><br>Дипломированный электрик. Установка светильников, розеток и профессиональное решение проблем."
             }
         };
 
-        function openProfile(id) {
-            document.getElementById('modalImg').src = profiles[id].img;
-            document.getElementById('modalBio').innerHTML = profiles[id].bio;
-            document.getElementById('profileModal').style.display = 'flex';
+        function toggleLanguage() {
+            currentLang = currentLang === 'he' ? 'ru' : 'he';
+            const l = content[currentLang];
+            document.getElementById('mainHtml').dir = currentLang === 'he' ? 'rtl' : 'ltr';
+            document.getElementById('sub_logo').innerText = l.sub;
+            document.getElementById('intro_text').innerText = l.intro;
+            document.getElementById('why_title').innerText = l.why;
+            document.getElementById('w1_t').innerText = l.w1_t; document.getElementById('w1_p').innerText = l.w1_p;
+            document.getElementById('w2_t').innerText = l.w2_t; document.getElementById('w2_p').innerText = l.w2_p;
+            document.getElementById('w3_t').innerText = l.w3_t; document.getElementById('w3_p').innerText = l.w3_p;
+            document.getElementById('form_title').innerText = l.form;
+            document.getElementById('f_name').placeholder = l.f_n;
+            document.getElementById('f_phone').placeholder = l.f_p;
+            document.getElementById('f_btn').innerText = l.f_b;
+            document.getElementById('name_s').innerText = l.name_s; document.getElementById('role_s').innerText = l.role_s;
+            document.getElementById('name_t').innerText = l.name_t; document.getElementById('role_t').innerText = l.role_t;
+        }
+
+        function openProfile(who) {
+            const bio = who === 'solomon' ? content[currentLang].bio_s : content[currentLang].bio_t;
+            document.getElementById('modalContent').innerHTML = bio;
+            document.getElementById('infoModal').style.display = 'flex';
             document.getElementById('track').style.animationPlayState = 'paused';
         }
 
         function closeProfile() {
-            document.getElementById('profileModal').style.display = 'none';
+            document.getElementById('infoModal').style.display = 'none';
             document.getElementById('track').style.animationPlayState = 'running';
         }
-
-        window.onclick = function(event) { if (event.target == document.getElementById('profileModal')) closeProfile(); }
     </script>
 </body>
 </html>
