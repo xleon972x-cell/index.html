@@ -3,29 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key2Lev | צבע, חשמל ותחזוקה</title>
+    <title>Key2Lev | פתרונות פרימיום</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
-            /* גוון זהב-ברונזה עמוק ויוקרתי */
             --bronze-gold: #cd7f32; 
             --bronze-light: #e6be8a;
             --bg-black: #050505; 
-            --glass: rgba(255, 255, 255, 0.03);
         }
 
         * { box-sizing: border-box; transition: all 0.3s ease; }
         body { font-family: 'Assistant', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; overflow-x: hidden; }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* כפתורי שליטה */
         .top-controls { position: absolute; top: 20px; width: calc(100% - 40px); display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
         .lang-switch { background: none; border: 1px solid var(--bronze-gold); color: var(--bronze-gold); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 700; }
-        .wa-top { width: 50px; height: 50px; background: var(--bronze-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #000; text-decoration: none; box-shadow: 0 4px 15px rgba(205, 127, 50, 0.4); }
+        .wa-top { width: 50px; height: 50px; background: var(--bronze-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #000; text-decoration: none; }
 
-        /* לוגו מקורי בגוון ברונזה */
-        .brand-header { text-align: center; padding: 60px 0 30px 0; }
+        .brand-header { text-align: center; padding: 60px 0 10px 0; }
         .logo { 
             font-family: 'Cinzel', serif; 
             font-size: 55px; 
@@ -35,33 +31,36 @@
             -webkit-text-fill-color: transparent; 
             text-transform: uppercase; 
             margin: 0; 
-            letter-spacing: 2px;
         }
+        .tagline { color: var(--bronze-gold); font-size: 16px; font-weight: 700; margin-bottom: 30px; }
 
-        /* סליידר */
-        .slider-container { width: 100%; overflow: hidden; margin: 20px 0; cursor: pointer; }
+        /* סליידר מומחים */
+        .slider-container { width: 100%; overflow: hidden; margin: 20px 0; }
         .slider-track { display: flex; width: 200%; animation: scrollLoop 15s linear infinite; }
         @keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
-        .expert-card { flex: 1; padding: 20px; text-align: center; min-width: 50%; }
+        .expert-card { flex: 1; padding: 20px; text-align: center; min-width: 50%; cursor: pointer; }
         .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--bronze-gold); margin: 0 auto 15px; overflow: hidden; }
         .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
         .expert-name { font-size: 24px; color: var(--bronze-gold); margin: 0; font-weight: 700; }
+        .expert-role { font-size: 14px; color: #aaa; margin: 5px 0; }
+        .expert-phone { font-size: 16px; color: #fff; font-weight: 700; display: block; margin-top: 5px; }
 
-        /* מודל פרופיל */
+        /* למה אנחנו - טקסט מקורי */
+        .why-us { background: rgba(255,255,255,0.03); border-radius: 20px; padding: 25px; margin: 20px 0; border: 1px solid rgba(205, 127, 50, 0.2); }
+        .why-us h2 { color: var(--bronze-gold); text-align: center; margin-bottom: 20px; }
+        .why-item { border-right: 3px solid var(--bronze-gold); padding-right: 15px; margin-bottom: 20px; }
+        .why-item h4 { color: var(--bronze-light); margin: 0 0 5px 0; font-size: 18px; }
+        .why-item p { margin: 0; font-size: 14px; line-height: 1.5; color: #ddd; }
+
+        /* מודל */
         .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; padding: 20px; }
         .modal-content { background: #111; border: 1px solid var(--bronze-gold); padding: 30px; border-radius: 20px; width: 100%; max-width: 400px; position: relative; text-align: center; }
         .close-modal { position: absolute; top: 15px; left: 15px; color: var(--bronze-gold); font-size: 30px; cursor: pointer; }
-        .modal-photo { width: 110px; height: 110px; border-radius: 50%; border: 2px solid var(--bronze-gold); margin-bottom: 15px; object-fit: cover; }
-        .modal-info { text-align: right; margin-top: 20px; line-height: 1.8; font-size: 16px; }
+        .modal-photo { width: 110px; height: 110px; border-radius: 50%; border: 2px solid var(--bronze-gold); margin-bottom: 15px; }
+        .modal-info { text-align: right; margin-top: 20px; line-height: 1.8; }
         .modal-info b { color: var(--bronze-gold); }
-        #mainHtml[dir="ltr"] .modal-info { text-align: left; }
 
-        /* טופס */
-        .form-section { background: #0a0a0a; border-radius: 20px; padding: 30px; border: 1px solid #1a1a1a; margin-top: 20px; }
-        .form-section h3 { color: var(--bronze-gold); text-align: center; margin-bottom: 20px; font-size: 22px; }
-        input, textarea { width: 100%; background: #000; border: 1px solid #222; padding: 15px; border-radius: 10px; color: #fff; margin-bottom: 15px; font-family: inherit; }
-        input:focus { border-color: var(--bronze-gold); outline: none; }
-        .submit-btn { width: 100%; padding: 18px; background: var(--bronze-gold); border: none; border-radius: 10px; font-weight: 900; color: #000; cursor: pointer; text-transform: uppercase; font-size: 16px; }
+        .submit-btn { width: 100%; padding: 18px; background: var(--bronze-gold); border: none; border-radius: 10px; font-weight: 900; color: #000; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -74,52 +73,70 @@
 
         <header class="brand-header">
             <h1 class="logo">key2lev</h1>
+            <div class="tagline" id="mainTagline">פרמיום פתרונות לבתים ולמשרדים</div>
         </header>
 
         <div class="slider-container">
             <div class="slider-track" id="track">
-                <div class="expert-card" onclick="openProfile('solomon')">
-                    <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg"></div>
-                    <h3 class="expert-name">סולומון זרוצבסקי</h3>
-                </div>
                 <div class="expert-card" onclick="openProfile('artyom')">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg"></div>
-                    <h3 class="expert-name">ארתיום צרנוב</h3>
+                    <h3 class="expert-name">ארתיום</h3>
+                    <div class="expert-role" id="role_a">חשמלאי מוסמך</div>
+                    <span class="expert-phone">054-976-3940</span>
+                </div>
+                <div class="expert-card" onclick="openProfile('solomon')">
+                    <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg"></div>
+                    <h3 class="expert-name">סולומון</h3>
+                    <div class="expert-role" id="role_s">תחזוקת משרדים וצביעת בתים</div>
+                    <span class="expert-phone">055-980-4080</span>
                 </div>
             </div>
         </div>
 
-        <section class="form-section">
-            <h3 id="formTitle">יצירת קשר</h3>
-            <form action="https://formspree.io/f/mojkwwrd" method="POST">
-                <input type="text" name="name" id="p_name" placeholder="שם מלא" required>
-                <input type="tel" name="phone" id="p_phone" placeholder="טלפון" required>
-                <textarea name="message" id="p_msg" rows="3" placeholder="איך נוכל לעזור?"></textarea>
-                <button type="submit" class="submit-btn" id="p_btn">שליחת פנייה</button>
-            </form>
+        <section class="why-us">
+            <h2 id="whyTitle">למה Key2Lev?</h2>
+            <div id="whyContent">
+                <div class="why-item">
+                    <h4 id="w1_t">מקצועיות ללא פשרות</h4>
+                    <p id="w1_p">אנחנו משלבים אומנות בשיפוץ עם הנדסת חשמל מדויקת לתוצאה מושלמת.</p>
+                </div>
+                <div class="why-item">
+                    <h4 id="w2_t">שירות מקצה לקצה</h4>
+                    <p id="w2_p">מעיצוב הגבס ועד לתשתיות הבית החכם, אנחנו דואגים להכל תחת קורת גג אחת.</p>
+                </div>
+                <div class="why-item">
+                    <h4 id="w3_t">אמינות ושקיפות</h4>
+                    <p id="w3_p">עמידה בלוחות זמנים, חומרי הגלם הטובים ביותר וליווי אישי לכל אורך הדרך.</p>
+                </div>
+            </div>
         </section>
+
+        <form action="https://formspree.io/f/mojkwwrd" method="POST" style="background:#0a0a0a; padding:20px; border-radius:20px; border:1px solid #1a1a1a;">
+            <input type="text" name="name" placeholder="שם מלא" style="width:100%; padding:15px; margin-bottom:10px; background:#000; border:1px solid #222; color:#fff; border-radius:10px;">
+            <input type="tel" name="phone" placeholder="טלפון" style="width:100%; padding:15px; margin-bottom:10px; background:#000; border:1px solid #222; color:#fff; border-radius:10px;">
+            <button type="submit" class="submit-btn" id="btn_send">שליחת פנייה</button>
+        </form>
     </div>
 
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeProfile()">&times;</span>
             <img id="modalImg" class="modal-photo" src="">
-            <h2 id="modalName" style="color: var(--bronze-gold); margin: 0; font-size: 26px;"></h2>
+            <h2 id="modalName" style="color: var(--bronze-gold); margin: 0;"></h2>
             <div class="modal-info" id="modalBio"></div>
         </div>
     </div>
 
     <script>
         let currentLang = 'he';
-        
         const profiles = {
             solomon: {
-                he: { name: "סולומון זרוצבסקי", bio: "<b>עיר מגורים:</b> נתניה<br><b>התמחות:</b> צבע אמנותי, חידוש בתים ותחזוקת משרדים.<br><b>ניסיון:</b> מומחה בגימורים קוסמטיים ותיקונים מורכבים.", img: "FB_IMG_1773330238671.jpg" },
-                ru: { name: "Соломон Заручевский", bio: "<b>Город:</b> Нетания<br><b>Специализация:</b> Покраска, обновление домов и обслуживание офисов.<br><b>Опыт:</b> Эксперт по косметическому ремонту и сложной отделке.", img: "FB_IMG_1773330238671.jpg" }
+                he: { name: "סולומון", bio: "<b>עיר:</b> נתניה<br><b>עבודות:</b> צביעת בתים/דירות, תיקוני סדקים ותחזוקת משרדים שוטפת.<br><b>דגש:</b> עבודה נקייה ומסודרת.", img: "FB_IMG_1773330238671.jpg" },
+                ru: { name: "Соломон", bio: "<b>Город:</b> Нетания<br><b>Работы:</b> Покраска домов/квартир, ремонт трещин и регулярное обслуживание офисов.<br><b>Акцент:</b> Чистая и аккуратная работа.", img: "FB_IMG_1773330238671.jpg" }
             },
             artyom: {
-                he: { name: "ארתיום צרנוב", bio: "<b>עיר מגורים:</b> קרית ים<br><b>התמחות:</b> חשמלאי מוסמך, תשתיות חשמל ותאורה.<br><b>ניסיון:</b> התקנת לוחות חשמל, פתרונות תקשורת ותאורה חכמה.", img: "FB_IMG_1773330225006.jpg" },
-                ru: { name: "Артём Чернов", bio: "<b>Город:</b> Кирьят-Ям<br><b>Специализация:</b> Лицензированный электрик, инфраструктура и освещение.<br><b>Опыт:</b> Установка щитков, систем связи и умного освещения.", img: "FB_IMG_1773330225006.jpg" }
+                he: { name: "ארתיום", bio: "<b>עיר:</b> קרית ים<br><b>עבודות:</b> חשמלאי מוסמך, פתרון תקלות, התקנת לוחות ותשתיות.<br><b>דגש:</b> בטיחות ודיוק הנדסי.", img: "FB_IMG_1773330225006.jpg" },
+                ru: { name: "Артём", bio: "<b>Город:</b> Кирьят-Ям<br><b>Работы:</b> Лицензированный электрик, устранение неполадок, установка щитков.<br><b>Акцент:</b> Безопасность и точность.", img: "FB_IMG_1773330225006.jpg" }
             }
         };
 
@@ -139,19 +156,20 @@
 
         function toggleLanguage() {
             currentLang = currentLang === 'he' ? 'ru' : 'he';
-            document.getElementById('mainHtml').dir = currentLang === 'he' ? 'rtl' : 'ltr';
-            document.getElementById('formTitle').innerText = currentLang === 'he' ? "יצירת קשר" : "Связаться с нами";
-            document.getElementById('p_name').placeholder = currentLang === 'he' ? "שם מלא" : "Имя";
-            document.getElementById('p_phone').placeholder = currentLang === 'he' ? "טלפון" : "Телефон";
-            document.getElementById('p_msg').placeholder = currentLang === 'he' ? "איך נוכל לעזור?" : "Чем помочь?";
-            document.getElementById('p_btn').innerText = currentLang === 'he' ? "שליחת פנייה" : "Отправить";
+            const isHe = currentLang === 'he';
+            document.getElementById('mainHtml').dir = isHe ? 'rtl' : 'ltr';
+            document.getElementById('mainTagline').innerText = isHe ? "פרמיום פתרונות לבתים ולמשרדים" : "Премиальные решения для дома и офиса";
+            document.getElementById('role_a').innerText = isHe ? "חשמלאי מוסמך" : "Лицензированный электрик";
+            document.getElementById('role_s').innerText = isHe ? "תחזוקת משרדים וצביעת בתים" : "Обслуживание офисов и покраска";
+            document.getElementById('whyTitle').innerText = isHe ? "למה Key2Lev?" : "Почему Key2Lev?";
+            document.getElementById('btn_send').innerText = isHe ? "שליחת פנייה" : "Отправить запрос";
+            // עדכון תוכן "למה אנחנו"
+            document.getElementById('w1_t').innerText = isHe ? "מקצועיות ללא פשרות" : "Бескомпромиссный профессионализм";
+            document.getElementById('w2_t').innerText = isHe ? "שירות מקצה לקצה" : "Полный цикл услуг";
+            document.getElementById('w3_t').innerText = isHe ? "אמינות ושקיפות" : "Надежность и прозрачность";
         }
 
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('profileModal')) {
-                closeProfile();
-            }
-        }
+        window.onclick = function(event) { if (event.target == document.getElementById('profileModal')) closeProfile(); }
     </script>
 </body>
 </html>
