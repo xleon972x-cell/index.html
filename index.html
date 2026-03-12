@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key2Lev | צבע, חשמל ותחזוקה</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --gold-main: #d4af37; /* גוון זהב אחיד ויוקרתי */
+            /* גוון זהב-ברונזה עמוק ויוקרתי */
+            --bronze-gold: #cd7f32; 
+            --bronze-light: #e6be8a;
             --bg-black: #050505; 
             --glass: rgba(255, 255, 255, 0.03);
         }
@@ -17,46 +19,49 @@
         body { font-family: 'Assistant', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; overflow-x: hidden; }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
 
-        /* כפתורי שליטה עליונים */
+        /* כפתורי שליטה */
         .top-controls { position: absolute; top: 20px; width: calc(100% - 40px); display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
-        .lang-switch { background: none; border: 1px solid var(--gold-main); color: var(--gold-main); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 700; }
-        
-        .wa-top { 
-            width: 50px; height: 50px; 
-            background: var(--gold-main); 
-            border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-size: 26px; color: #000; 
-            text-decoration: none; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); 
+        .lang-switch { background: none; border: 1px solid var(--bronze-gold); color: var(--bronze-gold); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 700; }
+        .wa-top { width: 50px; height: 50px; background: var(--bronze-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #000; text-decoration: none; box-shadow: 0 4px 15px rgba(205, 127, 50, 0.4); }
+
+        /* לוגו מקורי בגוון ברונזה */
+        .brand-header { text-align: center; padding: 60px 0 30px 0; }
+        .logo { 
+            font-family: 'Cinzel', serif; 
+            font-size: 55px; 
+            font-weight: 900; 
+            background: linear-gradient(to bottom, var(--bronze-light), var(--bronze-gold)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            text-transform: uppercase; 
+            margin: 0; 
+            letter-spacing: 2px;
         }
 
-        /* לוגו מודגש */
-        .brand-header { text-align: center; padding: 60px 0 30px 0; }
-        .logo { font-family: 'Cinzel', serif; font-size: 55px; font-weight: 900; color: var(--gold-main); text-transform: uppercase; letter-spacing: 2px; margin: 0; }
-        .premium-tag { font-size: 14px; color: #fff; font-weight: 400; margin-top: 5px; opacity: 0.8; }
-
-        /* סליידר מומחים */
-        .slider-container { width: 100%; overflow: hidden; margin: 20px 0; }
+        /* סליידר */
+        .slider-container { width: 100%; overflow: hidden; margin: 20px 0; cursor: pointer; }
         .slider-track { display: flex; width: 200%; animation: scrollLoop 15s linear infinite; }
         @keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
         .expert-card { flex: 1; padding: 20px; text-align: center; min-width: 50%; }
-        .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--gold-main); margin: 0 auto 15px; overflow: hidden; }
+        .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--bronze-gold); margin: 0 auto 15px; overflow: hidden; }
         .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-        .expert-name { font-size: 24px; color: var(--gold-main); margin: 0; font-weight: 700; }
-        .expert-desc { font-size: 14px; color: #eee; line-height: 1.5; padding: 0 10px; margin-top: 10px; }
+        .expert-name { font-size: 24px; color: var(--bronze-gold); margin: 0; font-weight: 700; }
 
-        /* חלק ה"למה אנחנו" */
-        .why-us { background: var(--glass); padding: 30px; border-radius: 20px; border-top: 1px solid var(--gold-main); margin-bottom: 30px; }
-        .why-us h3 { color: var(--gold-main); margin-top: 0; font-size: 22px; text-align: center; }
-        .reason { margin-bottom: 15px; font-size: 15px; padding-right: 15px; border-right: 2px solid var(--gold-main); }
-        .reason b { color: var(--gold-main); display: block; font-size: 16px; margin-bottom: 4px; }
+        /* מודל פרופיל */
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: #111; border: 1px solid var(--bronze-gold); padding: 30px; border-radius: 20px; width: 100%; max-width: 400px; position: relative; text-align: center; }
+        .close-modal { position: absolute; top: 15px; left: 15px; color: var(--bronze-gold); font-size: 30px; cursor: pointer; }
+        .modal-photo { width: 110px; height: 110px; border-radius: 50%; border: 2px solid var(--bronze-gold); margin-bottom: 15px; object-fit: cover; }
+        .modal-info { text-align: right; margin-top: 20px; line-height: 1.8; font-size: 16px; }
+        .modal-info b { color: var(--bronze-gold); }
+        #mainHtml[dir="ltr"] .modal-info { text-align: left; }
 
-        /* טופס יצירת קשר - נקי ומודגש */
-        .form-section { background: #0a0a0a; border-radius: 20px; padding: 30px; border: 1px solid #1a1a1a; }
-        .form-section h3 { color: var(--gold-main); text-align: center; margin-bottom: 20px; font-size: 22px; font-weight: 700; }
-        input, textarea { width: 100%; background: #000; border: 1px solid #222; padding: 15px; border-radius: 10px; color: #fff; margin-bottom: 15px; font-family: inherit; font-size: 15px; }
-        input:focus { border-color: var(--gold-main); outline: none; }
-        .submit-btn { width: 100%; padding: 18px; background: var(--gold-main); border: none; border-radius: 10px; font-weight: 900; color: #000; cursor: pointer; font-size: 16px; text-transform: uppercase; }
-        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        /* טופס */
+        .form-section { background: #0a0a0a; border-radius: 20px; padding: 30px; border: 1px solid #1a1a1a; margin-top: 20px; }
+        .form-section h3 { color: var(--bronze-gold); text-align: center; margin-bottom: 20px; font-size: 22px; }
+        input, textarea { width: 100%; background: #000; border: 1px solid #222; padding: 15px; border-radius: 10px; color: #fff; margin-bottom: 15px; font-family: inherit; }
+        input:focus { border-color: var(--bronze-gold); outline: none; }
+        .submit-btn { width: 100%; padding: 18px; background: var(--bronze-gold); border: none; border-radius: 10px; font-weight: 900; color: #000; cursor: pointer; text-transform: uppercase; font-size: 16px; }
     </style>
 </head>
 <body>
@@ -69,35 +74,20 @@
 
         <header class="brand-header">
             <h1 class="logo">key2lev</h1>
-            <div class="premium-tag" id="tagline">חידוש בתים ותחזוקת משרדים</div>
         </header>
 
         <div class="slider-container">
-            <div class="slider-track">
-                <div class="expert-card">
-                    <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg" alt="Solomon"></div>
-                    <h3 class="expert-name" id="name1">סולומון זרוצבסקי</h3>
-                    <p class="expert-desc" id="desc1">צבע וחידוש בתים, עבודות קוסמטיקה ותחזוקה שוטפת למשרדים.</p>
+            <div class="slider-track" id="track">
+                <div class="expert-card" onclick="openProfile('solomon')">
+                    <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg"></div>
+                    <h3 class="expert-name">סולומון זרוצבסקי</h3>
                 </div>
-                <div class="expert-card">
-                    <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg" alt="Artyom"></div>
-                    <h3 class="expert-name" id="name2">ארתיום צרנוב</h3>
-                    <p class="expert-desc" id="desc2">חשמלאי מוסמך: החלפת שקעים, התקנת מנורות ופתרונות חשמל מתקדמים.</p>
+                <div class="expert-card" onclick="openProfile('artyom')">
+                    <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg"></div>
+                    <h3 class="expert-name">ארתיום צרנוב</h3>
                 </div>
             </div>
         </div>
-
-        <section class="why-us">
-            <h3 id="whyTitle">השותפות שלנו</h3>
-            <div class="reason">
-                <b id="r1_t">עובדים יחד</b>
-                <span id="r1_d">ביצוע עבודות בשיתוף פעולה מלא לתוצאה מושלמת.</span>
-            </div>
-            <div class="reason">
-                <b id="r2_t">מומחיות ממוקדת</b>
-                <span id="r2_d">מתמחים בצבע, תיקונים קוסמטיים ותשתיות חשמל בלבד.</span>
-            </div>
-        </section>
 
         <section class="form-section">
             <h3 id="formTitle">יצירת קשר</h3>
@@ -110,46 +100,57 @@
         </section>
     </div>
 
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProfile()">&times;</span>
+            <img id="modalImg" class="modal-photo" src="">
+            <h2 id="modalName" style="color: var(--bronze-gold); margin: 0; font-size: 26px;"></h2>
+            <div class="modal-info" id="modalBio"></div>
+        </div>
+    </div>
+
     <script>
         let currentLang = 'he';
-        const data = {
-            he: {
-                tagline: "חידוש בתים ותחזוקת משרדים",
-                name1: "סולומון זרוצבסקי", name2: "ארתיום צרנוב",
-                desc1: "צבע וחידוש בתים, עבודות קוסמטיקה ותחזוקה שוטפת למשרדים.",
-                desc2: "חשמלאי מוסמך: החלפת שקעים, התקנת מנורות ופתרונות חשמל מתקדמים.",
-                whyTitle: "השותפות שלנו", r1_t: "עובדים יחד", r1_d: "ביצוע עבודות בשיתוף פעולה מלא לתוצאה מושלמת.",
-                r2_t: "מומחיות ממוקדת", r2_d: "מתמחים בצבע, תיקונים קוסמטיים ותשתיות חשמל בלבד.",
-                formTitle: "יצירת קשר", p_name: "שם מלא", p_phone: "טלפון", p_msg: "איך נוכל לעזור?", p_btn: "שליחת פנייה"
+        
+        const profiles = {
+            solomon: {
+                he: { name: "סולומון זרוצבסקי", bio: "<b>עיר מגורים:</b> נתניה<br><b>התמחות:</b> צבע אמנותי, חידוש בתים ותחזוקת משרדים.<br><b>ניסיון:</b> מומחה בגימורים קוסמטיים ותיקונים מורכבים.", img: "FB_IMG_1773330238671.jpg" },
+                ru: { name: "Соломон Заручевский", bio: "<b>Город:</b> Нетания<br><b>Специализация:</b> Покраска, обновление домов и обслуживание офисов.<br><b>Опыт:</b> Эксперт по косметическому ремонту и сложной отделке.", img: "FB_IMG_1773330238671.jpg" }
             },
-            ru: {
-                tagline: "ОБНОВЛЕНИЕ ДОМОВ И ОБСЛУЖИВАНИЕ ОФИСОВ",
-                name1: "Соломон Заручевский", name2: "Артём Чернов",
-                desc1: "Покраска, обновление домов, косметические работы и обслуживание офисов.",
-                desc2: "Лицензированный электрик: замена розеток, установка люстр и электрорешения.",
-                whyTitle: "Наше партнерство", r1_t: "Работаем вместе", r1_d: "Выполняем все работы в полном сотрудничестве.",
-                r2_t: "Узкая специализация", r2_d: "Специализируемся только на покраске, ремонте и электрике.",
-                formTitle: "Связаться с нами", p_name: "Имя", p_phone: "Телефон", p_msg: "Чем помочь?", p_btn: "Отправить"
+            artyom: {
+                he: { name: "ארתיום צרנוב", bio: "<b>עיר מגורים:</b> קרית ים<br><b>התמחות:</b> חשמלאי מוסמך, תשתיות חשמל ותאורה.<br><b>ניסיון:</b> התקנת לוחות חשמל, פתרונות תקשורת ותאורה חכמה.", img: "FB_IMG_1773330225006.jpg" },
+                ru: { name: "Артём Чернов", bio: "<b>Город:</b> Кирьят-Ям<br><b>Специализация:</b> Лицензированный электрик, инфраструктура и освещение.<br><b>Опыт:</b> Установка щитков, систем связи и умного освещения.", img: "FB_IMG_1773330225006.jpg" }
             }
         };
+
+        function openProfile(id) {
+            const p = profiles[id][currentLang];
+            document.getElementById('modalName').innerText = p.name;
+            document.getElementById('modalBio').innerHTML = p.bio;
+            document.getElementById('modalImg').src = p.img;
+            document.getElementById('profileModal').style.display = 'flex';
+            document.getElementById('track').style.animationPlayState = 'paused';
+        }
+
+        function closeProfile() {
+            document.getElementById('profileModal').style.display = 'none';
+            document.getElementById('track').style.animationPlayState = 'running';
+        }
 
         function toggleLanguage() {
             currentLang = currentLang === 'he' ? 'ru' : 'he';
             document.getElementById('mainHtml').dir = currentLang === 'he' ? 'rtl' : 'ltr';
-            const l = data[currentLang];
-            document.getElementById('tagline').innerText = l.tagline;
-            document.getElementById('name1').innerText = l.name1; 
-            document.getElementById('name2').innerText = l.name2; 
-            document.getElementById('desc1').innerText = l.desc1; 
-            document.getElementById('desc2').innerText = l.desc2; 
-            document.getElementById('whyTitle').innerText = l.whyTitle;
-            document.getElementById('r1_t').innerText = l.r1_t; document.getElementById('r1_d').innerText = l.r1_d;
-            document.getElementById('r2_t').innerText = l.r2_t; document.getElementById('r2_d').innerText = l.r2_d;
-            document.getElementById('formTitle').innerText = l.formTitle;
-            document.getElementById('p_name').placeholder = l.p_name;
-            document.getElementById('p_phone').placeholder = l.p_phone;
-            document.getElementById('p_msg').placeholder = l.p_msg;
-            document.getElementById('p_btn').innerText = l.p_btn;
+            document.getElementById('formTitle').innerText = currentLang === 'he' ? "יצירת קשר" : "Связаться с нами";
+            document.getElementById('p_name').placeholder = currentLang === 'he' ? "שם מלא" : "Имя";
+            document.getElementById('p_phone').placeholder = currentLang === 'he' ? "טלפון" : "Телефон";
+            document.getElementById('p_msg').placeholder = currentLang === 'he' ? "איך נוכל לעזור?" : "Чем помочь?";
+            document.getElementById('p_btn').innerText = currentLang === 'he' ? "שליחת פנייה" : "Отправить";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('profileModal')) {
+                closeProfile();
+            }
         }
     </script>
 </body>
