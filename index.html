@@ -5,61 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key2Lev | צבע, חשמל ותחזוקה</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --gold-primary: #d4af37; --gold-light: #f1d592; --gold-dark: #b8860b;
-            --bg-black: #050505; --glass: rgba(255, 255, 255, 0.05);
-            --border-gold: rgba(212, 175, 55, 0.3);
+            --gold-main: #d4af37; /* גוון זהב אחיד ויוקרתי */
+            --bg-black: #050505; 
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
         * { box-sizing: border-box; transition: all 0.3s ease; }
         body { font-family: 'Assistant', sans-serif; background-color: var(--bg-black); color: #fff; margin: 0; overflow-x: hidden; }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; position: relative; }
 
+        /* כפתורי שליטה עליונים */
         .top-controls { position: absolute; top: 20px; width: calc(100% - 40px); display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
-        .lang-switch { background: var(--glass); border: 1px solid var(--border-gold); color: var(--gold-light); padding: 8px 15px; border-radius: 12px; cursor: pointer; font-size: 12px; font-weight: 700; }
+        .lang-switch { background: none; border: 1px solid var(--gold-main); color: var(--gold-main); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 700; }
         
         .wa-top { 
-            width: 45px; height: 45px; 
-            background: linear-gradient(to bottom, var(--gold-light), var(--gold-dark)); 
+            width: 50px; height: 50px; 
+            background: var(--gold-main); 
             border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-size: 22px; color: #000; 
-            text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.4); 
+            justify-content: center; font-size: 26px; color: #000; 
+            text-decoration: none; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); 
         }
 
-        .brand-header { text-align: center; padding: 50px 0 20px 0; }
-        .logo { font-family: 'Cinzel', serif; font-size: 50px; font-weight: 900; background: linear-gradient(to bottom, var(--gold-light), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
-        .premium-tag { font-size: 13px; color: var(--gold-primary); font-weight: 700; margin-top: 5px; }
+        /* לוגו מודגש */
+        .brand-header { text-align: center; padding: 60px 0 30px 0; }
+        .logo { font-family: 'Cinzel', serif; font-size: 55px; font-weight: 900; color: var(--gold-main); text-transform: uppercase; letter-spacing: 2px; margin: 0; }
+        .premium-tag { font-size: 14px; color: #fff; font-weight: 400; margin-top: 5px; opacity: 0.8; }
 
-        .slider-container { width: 100%; overflow: hidden; background: var(--glass); border-radius: 30px; border: 1px solid var(--border-gold); margin: 20px 0; }
+        /* סליידר מומחים */
+        .slider-container { width: 100%; overflow: hidden; margin: 20px 0; }
         .slider-track { display: flex; width: 200%; animation: scrollLoop 15s linear infinite; }
         @keyframes scrollLoop { 0% { transform: translateX(0); } 100% { transform: translateX(50%); } }
-        .expert-card { flex: 1; padding: 25px 10px; text-align: center; min-width: 50%; }
-        .photo-wrapper { width: 110px; height: 110px; border-radius: 50%; padding: 4px; background: var(--gold-primary); margin: 0 auto 12px; overflow: hidden; }
-        .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid #000; }
-        .expert-name { font-size: 22px; color: var(--gold-light); margin: 0; font-weight: 700; }
-        .expert-desc { font-size: 13px; color: #ccc; line-height: 1.4; padding: 0 10px; }
+        .expert-card { flex: 1; padding: 20px; text-align: center; min-width: 50%; }
+        .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--gold-main); margin: 0 auto 15px; overflow: hidden; }
+        .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .expert-name { font-size: 24px; color: var(--gold-main); margin: 0; font-weight: 700; }
+        .expert-desc { font-size: 14px; color: #eee; line-height: 1.5; padding: 0 10px; margin-top: 10px; }
 
-        .why-us { background: var(--glass); padding: 25px; border-radius: 25px; border: 1px solid #222; margin-bottom: 25px; }
-        .why-us h3 { color: var(--gold-primary); margin-top: 0; font-size: 20px; text-align: center; }
-        .reason { margin-bottom: 12px; font-size: 14px; border-right: 3px solid var(--gold-dark); padding-right: 15px; }
-        .reason b { color: var(--gold-light); display: block; }
+        /* חלק ה"למה אנחנו" */
+        .why-us { background: var(--glass); padding: 30px; border-radius: 20px; border-top: 1px solid var(--gold-main); margin-bottom: 30px; }
+        .why-us h3 { color: var(--gold-main); margin-top: 0; font-size: 22px; text-align: center; }
+        .reason { margin-bottom: 15px; font-size: 15px; padding-right: 15px; border-right: 2px solid var(--gold-main); }
+        .reason b { color: var(--gold-main); display: block; font-size: 16px; margin-bottom: 4px; }
 
-        .live-chat-box { background: #111; border: 1px solid #222; border-radius: 25px; overflow: hidden; margin-bottom: 25px; }
-        .chat-header { background: #1a1a1a; padding: 12px; font-size: 13px; color: var(--gold-primary); border-bottom: 1px solid #222; display: flex; justify-content: space-between; }
-        .chat-messages { height: 180px; overflow-y: auto; padding: 15px; background: #0c0c0c; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
-        .msg b { color: var(--gold-light); }
-        .chat-input-area { display: flex; flex-direction: column; padding: 12px; background: #1a1a1a; gap: 8px; }
-        .chat-inputs-row { display: flex; gap: 8px; }
-        input#userName { width: 30%; background: #000; border: 1px solid #333; padding: 10px; color: var(--gold-light); border-radius: 10px; font-size: 12px; }
-        input#userInput { flex: 1; background: #000; border: 1px solid #333; padding: 10px; color: #fff; border-radius: 10px; font-size: 12px; }
-        .chat-send-btn { background: var(--gold-primary); border: none; padding: 10px 15px; border-radius: 10px; cursor: pointer; color: #000; font-weight: bold; }
-
-        .form-section { background: #111; border-radius: 25px; padding: 25px; border: 1px solid #222; margin-bottom: 25px; }
-        .form-section h3 { color: var(--gold-light); text-align: center; margin-bottom: 15px; font-size: 18px; }
-        input, textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; border-radius: 12px; color: #fff; margin-bottom: 12px; font-family: inherit; }
-        .submit-btn { width: 100%; padding: 15px; background: linear-gradient(45deg, var(--gold-dark), var(--gold-primary)); border: none; border-radius: 12px; font-weight: 900; color: #000; cursor: pointer; }
+        /* טופס יצירת קשר - נקי ומודגש */
+        .form-section { background: #0a0a0a; border-radius: 20px; padding: 30px; border: 1px solid #1a1a1a; }
+        .form-section h3 { color: var(--gold-main); text-align: center; margin-bottom: 20px; font-size: 22px; font-weight: 700; }
+        input, textarea { width: 100%; background: #000; border: 1px solid #222; padding: 15px; border-radius: 10px; color: #fff; margin-bottom: 15px; font-family: inherit; font-size: 15px; }
+        input:focus { border-color: var(--gold-main); outline: none; }
+        .submit-btn { width: 100%; padding: 18px; background: var(--gold-main); border: none; border-radius: 10px; font-weight: 900; color: #000; cursor: pointer; font-size: 16px; text-transform: uppercase; }
+        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -85,7 +82,7 @@
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg" alt="Artyom"></div>
                     <h3 class="expert-name" id="name2">ארתיום צרנוב</h3>
-                    <p class="expert-desc" id="desc2">חשמלאי מוסמך: החלפת שקעים, התקנת מנורות, מאווררים ופתרונות חשמל.</p>
+                    <p class="expert-desc" id="desc2">חשמלאי מוסמך: החלפת שקעים, התקנת מנורות ופתרונות חשמל מתקדמים.</p>
                 </div>
             </div>
         </div>
@@ -94,7 +91,7 @@
             <h3 id="whyTitle">השותפות שלנו</h3>
             <div class="reason">
                 <b id="r1_t">עובדים יחד</b>
-                <span id="r1_d">אנחנו שותפים שמבצעים את כל העבודות בשיתוף פעולה מלא.</span>
+                <span id="r1_d">ביצוע עבודות בשיתוף פעולה מלא לתוצאה מושלמת.</span>
             </div>
             <div class="reason">
                 <b id="r2_t">מומחיות ממוקדת</b>
@@ -102,20 +99,8 @@
             </div>
         </section>
 
-        <div class="live-chat-box">
-            <div class="chat-header"><span id="chatTitle"><i class="fas fa-users"></i> צ'אט קהילה LIVE</span></div>
-            <div class="chat-messages" id="chatBox"></div>
-            <div class="chat-input-area">
-                <div class="chat-inputs-row">
-                    <input type="text" id="userName" placeholder="שם">
-                    <input type="text" id="userInput" placeholder="הודעה לקהילה...">
-                </div>
-                <button class="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i> שליחה</button>
-            </div>
-        </div>
-
         <section class="form-section">
-            <h3 id="formTitle">כתבו לנו ונחזור אליכם</h3>
+            <h3 id="formTitle">יצירת קשר</h3>
             <form action="https://formspree.io/f/mojkwwrd" method="POST">
                 <input type="text" name="name" id="p_name" placeholder="שם מלא" required>
                 <input type="tel" name="phone" id="p_phone" placeholder="טלפון" required>
@@ -125,44 +110,26 @@
         </section>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
-
     <script>
-        const firebaseConfig = {
-          apiKey: "AIzaSyAn7PFUfjxc2U3Xwqm3ljQtQD5Jf45OBJ4",
-          authDomain: "key2levchat.firebaseapp.com",
-          projectId: "key2levchat",
-          storageBucket: "key2levchat.firebasestorage.app",
-          messagingSenderId: "172882067674",
-          appId: "1:172882067674:web:7b7833d7b886e39c8aa5e3",
-          measurementId: "G-64GXGQQJ1Q",
-          databaseURL: "https://key2levchat-default-rtdb.europe-west1.firebasedatabase.app/"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
-
         let currentLang = 'he';
         const data = {
             he: {
                 tagline: "חידוש בתים ותחזוקת משרדים",
                 name1: "סולומון זרוצבסקי", name2: "ארתיום צרנוב",
                 desc1: "צבע וחידוש בתים, עבודות קוסמטיקה ותחזוקה שוטפת למשרדים.",
-                desc2: "חשמלאי מוסמך: החלפת שקעים, התקנת מנורות, מאווררים ופתרונות חשמל.",
-                whyTitle: "השותפות שלנו", r1_t: "עובדים יחד", r1_d: "אנחנו שותפים שמבצעים את כל העבודות בשיתוף פעולה מלא.",
-                r2_t: "מומחיות ממוקדת", r2_d: "מתמחים בצבע, תיקונים קוסמטיים וחשמל - איכות ללא פשרות.",
-                formTitle: "כתבו לנו ונחזור אליכם", p_name: "שם מלא", p_phone: "טלפון", p_msg: "איך נוכל לעזור?", p_btn: "שליחת פנייה",
-                chatTitle: "צ'אט קהילה LIVE", input: "הודעה לקהילה...", namePlaceholder: "שם"
+                desc2: "חשמלאי מוסמך: החלפת שקעים, התקנת מנורות ופתרונות חשמל מתקדמים.",
+                whyTitle: "השותפות שלנו", r1_t: "עובדים יחד", r1_d: "ביצוע עבודות בשיתוף פעולה מלא לתוצאה מושלמת.",
+                r2_t: "מומחיות ממוקדת", r2_d: "מתמחים בצבע, תיקונים קוסמטיים ותשתיות חשמל בלבד.",
+                formTitle: "יצירת קשר", p_name: "שם מלא", p_phone: "טלפון", p_msg: "איך נוכל לעזור?", p_btn: "שליחת פנייה"
             },
             ru: {
                 tagline: "ОБНОВЛЕНИЕ ДОМОВ И ОБСЛУЖИВАНИЕ ОФИСОВ",
                 name1: "Соломон Заручевский", name2: "Артём Чернов",
                 desc1: "Покраска, обновление домов, косметические работы и обслуживание офисов.",
-                desc2: "Лицензированный электрик: замена розеток, установка люстр, вентиляторов.",
-                whyTitle: "Наше партнерство", r1_t: "Работаем вместе", r1_d: "Мы партнеры и выполняем все работы в полном сотрудничестве.",
+                desc2: "Лицензированный электрик: замена розеток, установка люстр и электрорешения.",
+                whyTitle: "Наше партнерство", r1_t: "Работаем вместе", r1_d: "Выполняем все работы в полном сотрудничестве.",
                 r2_t: "Узкая специализация", r2_d: "Специализируемся только на покраске, ремонте и электрике.",
-                formTitle: "Напишите нам", p_name: "Имя", p_phone: "Телефон", p_msg: "Чем помочь?", p_btn: "Отправить",
-                chatTitle: "ЖИВОЙ ЧАТ", input: "Сообщение...", namePlaceholder: "Имя"
+                formTitle: "Связаться с нами", p_name: "Имя", p_phone: "Телефон", p_msg: "Чем помочь?", p_btn: "Отправить"
             }
         };
 
@@ -183,34 +150,7 @@
             document.getElementById('p_phone').placeholder = l.p_phone;
             document.getElementById('p_msg').placeholder = l.p_msg;
             document.getElementById('p_btn').innerText = l.p_btn;
-            document.getElementById('chatTitle').innerHTML = `<i class="fas fa-users"></i> ${l.chatTitle}`;
-            document.getElementById('userInput').placeholder = l.input;
-            document.getElementById('userName').placeholder = l.namePlaceholder;
         }
-
-        function sendMessage() {
-            const nameInput = document.getElementById('userName');
-            const msgInput = document.getElementById('userInput');
-            const name = nameInput.value.trim() || (currentLang === 'he' ? 'אורח' : 'Гость');
-            if(msgInput.value.trim() !== "") {
-                db.ref('messages').push({
-                    name: name,
-                    text: msgInput.value,
-                    timestamp: Date.now()
-                });
-                msgInput.value = "";
-            }
-        }
-
-        db.ref('messages').limitToLast(20).on('child_added', (snapshot) => {
-            const msg = snapshot.val();
-            const box = document.getElementById('chatBox');
-            const div = document.createElement('div');
-            div.className = 'msg';
-            div.innerHTML = `<b>${msg.name}:</b> ${msg.text}`;
-            box.appendChild(div);
-            box.scrollTop = box.scrollHeight;
-        });
     </script>
 </body>
 </html>
