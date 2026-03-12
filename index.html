@@ -5,53 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key2Lev - Premium Services</title>
     <style>
-        :root {
-            --gold: #d4af37;
-            --dark-bg: #0a0a0a;
-            --card-bg: #1a1a1a;
-            --text-white: #ffffff;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            margin: 0;
-        }
-        .lang-switch {
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background: var(--gold);
-            border: none;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            color: #000;
-        }
-        .ad-container {
-            max-width: 450px;
-            background-color: var(--dark-bg);
-            border: 1px solid var(--gold);
-            border-radius: 30px;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.1);
-        }
-        .logo { font-size: 50px; font-weight: 900; color: var(--gold); margin-bottom: 0; }
-        .tagline { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 30px; }
-        h1 { color: #fff; font-size: 24px; margin-bottom: 10px; }
+        :root { --gold: #d4af37; --dark-bg: #0a0a0a; --card-bg: #1a1a1a; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #000; display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; color: white; }
+        .lang-switch { margin-bottom: 20px; padding: 10px 25px; background: var(--gold); border: none; border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .lang-switch:hover { transform: scale(1.05); }
+        .ad-container { max-width: 450px; background-color: var(--dark-bg); border: 1px solid var(--gold); border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 0 50px rgba(212, 175, 55, 0.1); }
+        .logo { font-size: 55px; font-weight: 900; color: var(--gold); margin-bottom: 0; letter-spacing: -2px; }
+        .tagline { color: var(--gold); font-size: 14px; margin-bottom: 35px; letter-spacing: 2px; text-transform: uppercase; }
+        h1 { font-size: 26px; margin-bottom: 10px; font-weight: 700; }
         .experts-grid { display: flex; gap: 15px; margin-bottom: 30px; }
-        .expert-card { flex: 1; background: var(--card-bg); padding: 20px; border-radius: 20px; border: 1px solid #333; }
-        .photo-frame { width: 100px; height: 100px; border-radius: 50%; border: 2px solid var(--gold); margin: 0 auto 15px; overflow: hidden; background: #222; }
+        .expert-card { flex: 1; background: var(--card-bg); padding: 20px; border-radius: 25px; border: 1px solid #333; }
+        .photo-frame { width: 110px; height: 110px; border-radius: 50%; border: 2px solid var(--gold); margin: 0 auto 15px; overflow: hidden; background: #222; }
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .name { color: var(--gold); font-weight: bold; font-size: 18px; display: block; }
-        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; text-align: initial; border-top: 1px solid #222; padding-top: 20px; }
-        .feature { color: #fff; font-size: 14px; }
-        .contact-box { background: #1a1a1a; padding: 20px; border-radius: 20px; border-top: 2px solid var(--gold); }
-        .contact-item { display: flex; justify-content: space-between; margin: 10px 0; font-size: 18px; text-decoration: none; color: var(--gold); }
-        .ltr { direction: ltr; text-align: left; }
+        .name { color: var(--gold); font-weight: bold; font-size: 20px; display: block; margin-bottom: 5px; }
+        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; border-top: 1px solid #222; padding-top: 20px; }
+        .feature { font-size: 14px; text-align: right; color: #eee; }
+        .contact-box { background: #1a1a1a; padding: 25px; border-radius: 25px; border-top: 2px solid var(--gold); }
+        .contact-item { display: flex; justify-content: space-between; margin: 12px 0; font-size: 19px; text-decoration: none; color: var(--gold); font-weight: 600; }
+        .ltr { direction: ltr; }
+        .ltr .feature { text-align: left; }
     </style>
 </head>
 <body>
@@ -68,16 +40,17 @@
         <div class="experts-grid">
             <div class="expert-card">
                 <div class="photo-frame">
-                    <img src="FB_IMG_1773330225091.jpg" alt="Solomon">
+                    <img src="FB_IMG_1773330238671.jpg" alt="Solomon">
                 </div>
                 <span class="name">סולומון</span>
                 <span id="role1" style="color:#888; font-size:12px;">שיפוץ וגמר</span>
             </div>
+            
             <div class="expert-card">
                 <div class="photo-frame">
-                    <img src="FB_IMG_1773330238612.jpg" alt="Tom">
+                    <img src="FB_IMG_1773330225006.jpg" alt="Tom">
                 </div>
-                <span class="name">טום</span>
+                <span class="name">תום</span>
                 <span id="role2" style="color:#888; font-size:12px;">חשמלאי מוסמך</span>
             </div>
         </div>
@@ -90,46 +63,23 @@
         </div>
 
         <div class="contact-box">
-            <a href="tel:0559804080" class="contact-item">
-                <span style="color:white;">סולומון</span>
-                <span>055-980-4080</span>
-            </a>
-            <a href="tel:0549763940" class="contact-item">
-                <span style="color:white;">ארתיום</span>
-                <span>054-976-3940</span>
-            </a>
+            <a href="tel:0559804080" class="contact-item"><span>סולומון</span><span>055-980-4080</span></a>
+            <a href="tel:0549763940" class="contact-item"><span>ארתיום (תום)</span><span>054-976-3940</span></a>
         </div>
     </div>
 
     <script>
         let currentLang = 'he';
         const data = {
-            he: {
-                tagline: "שירותי יוקרה לבית ולעסק",
-                title: "צריכים שיפוץ קוסמטי?",
-                sub: "יש תקלת חשמל? המומחים שלנו בדרך אליכם",
-                role1: "שיפוץ וגמר",
-                role2: "חשמלאי מוסמך",
-                f1: "✦ שירות מעל הכל", f2: "✦ עבודה הוגנת", f3: "✦ זמינות ואיכות", f4: "✦ מרכז עד צפון"
-            },
-            ru: {
-                tagline: "Премиальные услуги для дома и офиса",
-                title: "Нужен косметический ремонт?",
-                sub: "Проблемы с электричеством? Наши эксперты помогут вам",
-                role1: "Ремонт и отделка",
-                role2: "Лицензированный электрик",
-                f1: "✦ Сервис превыше всего", f2: "✦ Честная работа", f3: "✦ Качество и доступность", f4: "✦ Центр и Север"
-            }
+            he: { tagline: "שירותי יוקרה לבית ולעסק", title: "צריכים שיפוץ קוסמטי?", sub: "יש תקלת חשמל? המומחים שלנו בדרך אליכם", role1: "שיפוץ וגמר", role2: "חשמלאי מוסמך", f1: "✦ שירות מעל הכל", f2: "✦ עבודה הוגנת", f3: "✦ זמינות ואיכות", f4: "✦ מרכז עד צפון" },
+            ru: { tagline: "Премиальные услуги для дома и офиса", title: "Нужен косметический ремонт?", sub: "Проблемы с электричеством? Наши эксперты помогут вам", role1: "Ремонт и отделка", role2: "Лицензированный электрик", f1: "✦ Сервис превыше всего", f2: "✦ Честная работа", f3: "✦ Качество и доступность", f4: "✦ Центр и Север" }
         };
 
         function toggleLanguage() {
             const html = document.getElementById('mainHtml');
             currentLang = currentLang === 'he' ? 'ru' : 'he';
-            
             html.dir = currentLang === 'he' ? 'rtl' : 'ltr';
-            if(currentLang === 'ru') html.classList.add('ltr');
-            else html.classList.remove('ltr');
-
+            if(currentLang === 'ru') html.classList.add('ltr'); else html.classList.remove('ltr');
             document.getElementById('tagline').innerText = data[currentLang].tagline;
             document.getElementById('mainTitle').innerText = data[currentLang].title;
             document.getElementById('subTitle').innerText = data[currentLang].sub;
