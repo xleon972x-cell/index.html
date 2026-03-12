@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key2Lev | Professional Solutions</title>
+    <title>Key2Lev | צבע, חשמל ותחזוקה</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -24,7 +24,7 @@
 
         .brand-header { text-align: center; padding: 50px 0 20px 0; }
         .logo { font-family: 'Cinzel', serif; font-size: 50px; font-weight: 900; background: linear-gradient(to bottom, var(--gold-light), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
-        .premium-tag { font-size: 13px; color: var(--gold-primary); font-weight: 700; margin-top: 5px; letter-spacing: 1px; }
+        .premium-tag { font-size: 13px; color: var(--gold-primary); font-weight: 700; margin-top: 5px; }
 
         /* סליידר שוויוני */
         .slider-container { width: 100%; overflow: hidden; background: var(--glass); border-radius: 30px; border: 1px solid var(--border-gold); margin: 20px 0; }
@@ -34,23 +34,24 @@
         .photo-wrapper { width: 110px; height: 110px; border-radius: 50%; padding: 4px; background: var(--gold-primary); margin: 0 auto 12px; overflow: hidden; }
         .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid #000; }
         .expert-name { font-size: 22px; color: var(--gold-light); margin: 0; font-weight: 700; }
+        .expert-desc { font-size: 13px; color: #ccc; line-height: 1.4; padding: 0 10px; }
 
-        /* למה אנחנו */
-        .why-us { background: var(--glass); padding: 25px; border-radius: 25px; border: 1px solid #222; margin-bottom: 30px; }
+        /* למה אנחנו - מעודכן */
+        .why-us { background: var(--glass); padding: 25px; border-radius: 25px; border: 1px solid #222; margin-bottom: 25px; }
         .why-us h3 { color: var(--gold-primary); margin-top: 0; font-size: 20px; text-align: center; }
-        .reason { margin-bottom: 15px; font-size: 14px; line-height: 1.5; border-right: 3px solid var(--gold-dark); padding-right: 15px; }
-        .reason b { color: var(--gold-light); display: block; margin-bottom: 3px; }
+        .reason { margin-bottom: 12px; font-size: 14px; border-right: 3px solid var(--gold-dark); padding-right: 15px; }
+        .reason b { color: var(--gold-light); display: block; }
 
-        /* טופס פנייה רשמי */
-        .form-section { background: #111; border-radius: 25px; padding: 25px; border: 1px solid #222; margin-bottom: 30px; }
-        .form-section h3 { color: var(--gold-light); text-align: center; margin-bottom: 20px; font-size: 18px; }
-        input, textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; border-radius: 12px; color: #fff; margin-bottom: 15px; font-family: inherit; }
+        /* טופס פנייה */
+        .form-section { background: #111; border-radius: 25px; padding: 25px; border: 1px solid #222; margin-bottom: 25px; }
+        .form-section h3 { color: var(--gold-light); text-align: center; margin-bottom: 15px; font-size: 18px; }
+        input, textarea { width: 100%; background: #000; border: 1px solid #333; padding: 12px; border-radius: 12px; color: #fff; margin-bottom: 12px; font-family: inherit; }
         .submit-btn { width: 100%; padding: 15px; background: linear-gradient(45deg, var(--gold-dark), var(--gold-primary)); border: none; border-radius: 12px; font-weight: 900; color: #000; cursor: pointer; }
 
-        /* פורום קהילה */
-        .live-chat-box { background: #111; border: 1px solid #222; border-radius: 25px; overflow: hidden; margin-top: 20px; }
+        /* צ'אט */
+        .live-chat-box { background: #111; border: 1px solid #222; border-radius: 25px; overflow: hidden; }
         .chat-header { background: #1a1a1a; padding: 12px; font-size: 13px; color: var(--gold-primary); border-bottom: 1px solid #222; display: flex; justify-content: space-between; }
-        .chat-messages { height: 180px; overflow-y: auto; padding: 15px; background: #0c0c0c; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+        .chat-messages { height: 150px; overflow-y: auto; padding: 15px; background: #0c0c0c; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
         .msg b { color: var(--gold-light); }
         .chat-input-area { display: flex; padding: 12px; background: #1a1a1a; gap: 8px; }
         .chat-input-area input { flex: 1; background: #000; border: 1px solid #333; padding: 10px; color: #fff; border-radius: 10px; }
@@ -67,7 +68,7 @@
 
         <header class="brand-header">
             <h1 class="logo">key2lev</h1>
-            <div class="premium-tag" id="tagline">פרמיום פתרונות לבתים ולמשרדים</div>
+            <div class="premium-tag" id="tagline">חידוש בתים ותחזוקת משרדים</div>
         </header>
 
         <div class="slider-container">
@@ -75,32 +76,40 @@
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg" alt="Solomon"></div>
                     <h3 class="expert-name">סולומון</h3>
-                    <div id="role1" style="font-size: 12px; color: #888;">אמן שיפוץ וגמר</div>
+                    <p class="expert-desc" id="desc1">צבע וחידוש בתים, עבודות קוסמטיקה ותחזוקה שוטפת למשרדים.</p>
                 </div>
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg" alt="Artyom"></div>
-                    <h3 class="expert-name">ארתיום</h3>
-                    <div id="role2" style="font-size: 12px; color: #888;">חשמלאי מוסמך</div>
+                    <h3 class="expert-name">תום</h3>
+                    <p class="expert-desc" id="desc2">חשמלאי מוסמך: החלפת שקעים, התקנת מנורות, מאווררים ופתרונות חשמל.</p>
                 </div>
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330238671.jpg" alt="Solomon"></div>
                     <h3 class="expert-name">סולומון</h3>
+                    <p class="expert-desc">צבע, קוסמטיקה ותחזוקה.</p>
                 </div>
                 <div class="expert-card">
                     <div class="photo-wrapper"><img src="FB_IMG_1773330225006.jpg" alt="Artyom"></div>
-                    <h3 class="expert-name">ארתיום</h3>
+                    <h3 class="expert-name">תום</h3>
+                    <p class="expert-desc">חשמלאי מוסמך.</p>
                 </div>
             </div>
         </div>
 
         <section class="why-us">
-            <h3 id="whyTitle">למה Key2Lev?</h3>
-            <div class="reason"><b id="r1_t">מקצועיות ללא פשרות</b><span id="r1_d">שילוב אומנות השיפוץ עם הנדסת חשמל מדויקת.</span></div>
-            <div class="reason"><b id="r2_t">שירות מקצה לקצה</b><span id="r2_d">מעיצוב גבס ועד לתשתיות בית חכם.</span></div>
+            <h3 id="whyTitle">השותפות שלנו</h3>
+            <div class="reason">
+                <b id="r1_t">עובדים יחד</b>
+                <span id="r1_d">אנחנו שותפים שמבצעים את כל העבודות בשיתוף פעולה מלא למען התוצאה הטובה ביותר.</span>
+            </div>
+            <div class="reason">
+                <b id="r2_t">מומחיות ממוקדת</b>
+                <span id="r2_d">אנחנו מתמחים בצבע, תיקונים קוסמטיים ותשתיות חשמל בלבד - איכות מעל הכל.</span>
+            </div>
         </section>
 
         <section class="form-section">
-            <h3 id="formTitle">השאירו פרטים ונחזור אליכם</h3>
+            <h3 id="formTitle">כתבו לנו ונחזור אליכם</h3>
             <form action="https://formspree.io/f/mojkwwrd" method="POST">
                 <input type="text" name="name" id="p_name" placeholder="שם מלא" required>
                 <input type="tel" name="phone" id="p_phone" placeholder="טלפון" required>
@@ -111,7 +120,7 @@
 
         <div class="live-chat-box">
             <div class="chat-header"><span id="chatTitle"><i class="fas fa-users"></i> צ'אט קהילה LIVE</span></div>
-            <div class="chat-messages" id="chatBox"><div class="msg"><b>מערכת:</b> ברוכים הבאים!</div></div>
+            <div class="chat-messages" id="chatBox"><div class="msg"><b>מערכת:</b> ברוכים הבאים ל-Key2Lev!</div></div>
             <div class="chat-input-area">
                 <input type="text" id="userInput" placeholder="הודעה לקהילה...">
                 <button class="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
@@ -123,17 +132,21 @@
         let currentLang = 'he';
         const data = {
             he: {
-                tagline: "פרמיום פתרונות לבתים ולמשרדים", role1: "אמן שיפוץ וגמר", role2: "חשמלאי מוסמך",
-                whyTitle: "למה Key2Lev?", r1_t: "מקצועיות ללא פשרות", r1_d: "שילוב אומנות השיפוץ עם הנדסת חשמל מדויקת.",
-                r2_t: "שירות מקצה לקצה", r2_d: "מעיצוב גבס ועד לתשתיות בית חכם.",
-                formTitle: "השאירו פרטים ונחזור אליכם", p_name: "שם מלא", p_phone: "טלפון", p_msg: "איך נוכל לעזור?", p_btn: "שליחת פנייה",
+                tagline: "חידוש בתים ותחזוקת משרדים",
+                desc1: "צבע וחידוש בתים, עבודות קוסמטיקה ותחזוקה שוטפת למשרדים.",
+                desc2: "חשמלאי מוסמך: החלפת שקעים, התקנת מנורות, מאווררים ופתרונות חשמל.",
+                whyTitle: "השותפות שלנו", r1_t: "עובדים יחד", r1_d: "אנחנו שותפים שמבצעים את כל העבודות בשיתוף פעולה מלא.",
+                r2_t: "מומחיות ממוקדת", r2_d: "מתמחים בצבע, תיקונים קוסמטיים וחשמל - איכות ללא פשרות.",
+                formTitle: "כתבו לנו ונחזור אליכם", p_name: "שם מלא", p_phone: "טלפון", p_msg: "איך נוכל לעזור?", p_btn: "שליחת פנייה",
                 chatTitle: "צ'אט קהילה LIVE", input: "הודעה לקהילה..."
             },
             ru: {
-                tagline: "ПРЕМИАЛЬНЫЕ РЕШЕНИЯ ДЛЯ ДОМА", role1: "Мастер отделки", role2: "Лицензированный электрик",
-                whyTitle: "Почему Key2Lev?", r1_t: "Бескомпромиссный профи", r1_d: "Сочетание искусства ремонта и точной электрики.",
-                r2_t: "Полный спектр услуг", r2_d: "От дизайна гипса до систем умного дома.",
-                formTitle: "Оставьте заявку и мы перезвоним", p_name: "Полное имя", p_phone: "Телефон", p_msg: "Чем мы можем помочь?", p_btn: "Отправить",
+                tagline: "ОБНОВЛЕНИЕ ДОМОВ И ОБСЛУЖИВАНИЕ ОФИСОВ",
+                desc1: "Покраска, обновление домов, косметические работы и обслуживание офисов.",
+                desc2: "Лицензированный электрик: замена розеток, установка люстр, вентиляторов.",
+                whyTitle: "Наше партнерство", r1_t: "Работаем вместе", r1_d: "Мы партнеры и выполняем все работы в полном сотрудничестве.",
+                r2_t: "Узкая специализация", r2_d: "Специализируемся только на покраске, ремонте и электрике.",
+                formTitle: "Напишите нам", p_name: "Имя", p_phone: "Телефон", p_msg: "Чем помочь?", p_btn: "Отправить",
                 chatTitle: "ЖИВОЙ ЧАТ", input: "Сообщение..."
             }
         };
@@ -143,8 +156,8 @@
             document.getElementById('mainHtml').dir = currentLang === 'he' ? 'rtl' : 'ltr';
             const l = data[currentLang];
             document.getElementById('tagline').innerText = l.tagline;
-            document.getElementById('role1').innerText = l.role1;
-            document.getElementById('role2').innerText = l.role2;
+            document.getElementById('desc1').innerText = l.desc1;
+            document.getElementById('desc2').innerText = l.desc2;
             document.getElementById('whyTitle').innerText = l.whyTitle;
             document.getElementById('r1_t').innerText = l.r1_t; document.getElementById('r1_d').innerText = l.r1_d;
             document.getElementById('r2_t').innerText = l.r2_t; document.getElementById('r2_d').innerText = l.r2_d;
